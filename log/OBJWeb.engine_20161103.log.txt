@@ -1,0 +1,1 @@
+11:56:13 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.

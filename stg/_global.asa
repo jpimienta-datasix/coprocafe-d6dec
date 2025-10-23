@@ -1,0 +1,50 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+' Control de D6DEC
+' http://www.datasix.es / jpimienta@datasix.es
+' v20151113
+' <Guardado con Codificación UTF-8>
+
+Sub Application_OnStart()
+Dim sUsrSQL, sPwdSQL, sSQLSrv
+
+	sUsrSQL = "usrcop"
+	sPwdSQL = "usrcop"
+	'sSQLSrv = "HV-CNDW2K8\SQLEXPRESS"
+	sSQLSrv = ".\SQLEXPRESS"
+	'sSQLSrv = "ESSEATMAS500579\SQLEXPRESS"
+	Application("sCnxStr") = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=INFOCOP;Uid=" & sUsrSQL & ";Pwd=" & sPwdSQL & ";"
+	'sCnxStr = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=SIMI;Trusted_Connection=yes;"
+
+End Sub
+
+' Al iniciar sesión
+Sub Session_OnStart()
+	Dim oCnx
+
+	Set oCnx = Server.CreateObject("ADODB.Connection")
+	sFecha = Year(Now) & "-" & Month(Now) & "-" & Day(Now) & " " & Hour(Now) & ":" & Minute(Now) & ":" & Second(Now)
+	oCnx.Open Application("sCnxStr")
+	oCnx.Execute "SET DATEFORMAT YMD; INSERT INTO INFOCOP.dbo.D6DEC_Log (USUARIO, FECHA, ACCION, IP, SESSIONID) VALUES ('" & Request.ServerVariables("AUTH_USER") & "', '" & sFecha & "', 'SessionOnStart', '" & Request.ServerVariables("REMOTE_ADDR") & "', '" & Session.SessionID & "')", nRAFF
+	oCnx.Close
+	Set oCnx = Nothing
+End Sub
+
+' Al finalizar la sesión
+Sub Session_OnEnd()
+'Se borran los ficheros temporales generados
+' ## SI NO FUNCIONA, PONER UNA TASK QUE LO HAGA ##
+	'Dim oFSO, sPath
+	'sPath = "D:\D6WEBAPPS\D6OBJWEB\WEB\TEMP\" & sSession 
+	'Set oFSO = Server.CreateObject("Scripting.FileSystemObject")
+	'If oFSO.FolderExists(sPath) Then oFSO.DeleteFolder(sPath)
+	'Set oFSO = Nothing
+
+	Set oCnx = Server.CreateObject("ADODB.Connection")
+	sFecha = Year(Now) & "-" & Month(Now) & "-" & Day(Now) & " " & Hour(Now) & ":" & Minute(Now) & ":" & Second(Now)
+	oCnx.Open Application("sCnxStr")
+	oCnx.Execute "SET DATEFORMAT YMD; INSERT INTO SIMI.dbo.D6DEC_Log (USUARIO, FECHA, ACCION, IP, SESSIONID) VALUES ('" & Request.ServerVariables("AUTH_USER") & "', '" & sFecha & "', 'SessionOnEnd', '" & Request.ServerVariables("REMOTE_ADDR") & "', '" & Session.SessionID & "')", nRAFF
+	oCnx.Close
+	Set oCnx = Nothing
+
+End Sub
+</SCRIPT>

@@ -1,0 +1,14 @@
+11:19:18 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+11:19:24 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+11:19:28 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+12:05:18 (asp)> CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+12:05:29 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+12:06:29 (asp)> CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+13:35:55 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+16:30:58 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+16:31:10 (asp)> CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+17:30:52 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 945723574 "LHT0 5251901 00 23.02.17 EUR 002904400.pdf" 1" 
+17:30:55 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 945723574 "LHT0 5251902 00 23.02.17 EUR 002904400.pdf" 1" 
+17:30:56 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 945723574 "LHT0 5251903 00 23.02.17 EUR 002904400.pdf" 1" 
+17:34:35 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 945723590 "LHMP 5251901 01 23.02.17 EUR 002904400.pdf" 2" 
+17:34:37 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 945723590 "LHTM 5251901 01 23.02.17 EUR 002904400.pdf" 2" 

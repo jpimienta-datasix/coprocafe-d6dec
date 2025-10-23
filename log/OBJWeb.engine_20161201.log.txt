@@ -1,0 +1,5 @@
+9:20:58 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+9:21:08 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+9:21:38 > CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+9:25:50 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+9:27:23 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.

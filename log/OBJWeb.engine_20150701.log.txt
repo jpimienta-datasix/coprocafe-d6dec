@@ -1,0 +1,4 @@
+10:27:26 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs 488337689" 
+12:09:04 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs" 501289419
+13:07:49 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs" 508263735
+13:09:48 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs" 508263735

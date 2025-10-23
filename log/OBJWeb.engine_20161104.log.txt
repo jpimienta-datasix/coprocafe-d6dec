@@ -1,0 +1,4 @@
+13:54:27 > RTCV > ERROR (-2147217900) Incorrect syntax near ')'.
+13:58:08 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+13:58:27 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+14:07:45 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.

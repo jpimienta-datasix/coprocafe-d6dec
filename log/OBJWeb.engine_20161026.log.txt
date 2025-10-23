@@ -1,0 +1,5 @@
+13:56:23 > RTCV > ERROR (5) Argumento o llamada a procedimiento no válidos
+13:57:22 > RTCV > ERROR (5) Argumento o llamada a procedimiento no válidos
+14:00:04 > RTCV > ERROR (5) Argumento o llamada a procedimiento no válidos
+14:04:23 > RTCV > ERROR (13) No coinciden los tipos
+14:09:26 > RTCV > ERROR (13) No coinciden los tipos

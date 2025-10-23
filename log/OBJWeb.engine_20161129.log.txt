@@ -1,0 +1,1 @@
+15:49:44 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.

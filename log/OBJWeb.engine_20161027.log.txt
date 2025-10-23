@@ -1,0 +1,1 @@
+17:38:01 > RTCT > ERROR (-2147217900) Unclosed quotation mark after the character string 'OR' ) T WHERE T.RNum BETWEEN 1 AND 20'.

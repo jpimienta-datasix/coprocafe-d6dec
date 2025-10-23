@@ -1,0 +1,3 @@
+12:06:55 > RCBQL > ERROR (-2147217900) Incorrect syntax near the keyword 'WHERE'.
+13:27:56 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+18:50:09 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.

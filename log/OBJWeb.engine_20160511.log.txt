@@ -1,0 +1,5 @@
+22:19:17 > RCBI > ERROR (-2147217871) Se ha superado el tiempo de espera de la consulta
+22:19:26 > RCBU > ERROR (-2147217871) Se ha superado el tiempo de espera de la consulta
+22:19:32 > RCBU > ERROR (-2147217871) Se ha superado el tiempo de espera de la consulta
+22:19:34 > RCBU > ERROR (-2147217871) Se ha superado el tiempo de espera de la consulta
+22:19:40 > RCBU > ERROR (-2147217871) Se ha superado el tiempo de espera de la consulta

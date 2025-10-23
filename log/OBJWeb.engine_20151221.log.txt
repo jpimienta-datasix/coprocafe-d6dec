@@ -1,0 +1,1 @@
+16:57:55 > RTCV > ERROR (-2147217900) Invalid column name 'FECHA_CARGA'.

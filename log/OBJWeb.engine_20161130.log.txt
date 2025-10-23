@@ -1,0 +1,13 @@
+12:10:31 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+12:10:35 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+12:10:45 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+12:11:23 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:56:22 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:56:50 > CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:56:58 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:59:23 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:59:49 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+13:59:58 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+14:14:20 > CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+15:03:49 > CALCE > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.
+15:03:55 > RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de la palabra clave 'AND'.

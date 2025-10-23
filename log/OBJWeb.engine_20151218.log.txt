@@ -1,0 +1,2 @@
+9:41:40 > RCBCP > ERROR (-2147217900) Incorrect syntax near the keyword 'Option'.
+13:09:36 > RCBCP > ERROR (-2147217900) Incorrect syntax near 'INFOCOP'.

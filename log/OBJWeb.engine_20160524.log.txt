@@ -1,0 +1,1 @@
+16:39:21 > RCBFF > ERROR (-2147217900) Invalid column name 'FECHA'.

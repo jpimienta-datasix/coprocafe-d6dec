@@ -1,0 +1,6 @@
+18:48:22 [vbs]> Inicio (Session: 770906406)
+18:48:24 [vbs]> Fin (Session: 770906406)
+18:54:32 [vbs]> Inicio (Session: 770906406)
+18:54:32 [vbs]> Fin (Session: 770906406)
+18:55:56 [vbs]> Inicio (Session: 770906406)
+18:55:57 [vbs]> Fin (Session: 770906406)

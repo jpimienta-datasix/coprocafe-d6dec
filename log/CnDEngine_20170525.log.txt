@@ -1,0 +1,4 @@
+11:21:32 [vbs]> Inicio <CONTRATO - Price-to-be-fixed> (Compra/Venta/Oferta: V | Session: 889805565 | PDF: LHT0 7232501 00 25.05.17 USD 002923000.pdf | PriceType: 2)
+11:21:33 [vbs]> Fin (Compra/Venta/Oferta: V | Session: 889805565 | PDF: LHT0 7232501 00 25.05.17 USD 002923000.pdf | PriceType: 2)
+12:09:50 [vbs]> Inicio <CONTRATO - Price-to-be-fixed> (Compra/Venta/Oferta: V | Session: 896135797 | PDF: LHT0 7232601 00 25.05.17 USD 002923000.pdf | PriceType: 2)
+12:09:51 [vbs]> Fin (Compra/Venta/Oferta: V | Session: 896135797 | PDF: LHT0 7232601 00 25.05.17 USD 002923000.pdf | PriceType: 2)

@@ -1,0 +1,3 @@
+12:29:44 > CALCE > ERROR (-2147217900) The multi-part identifier "D.AgrupCenso" could not be bound.
+12:46:16 > CALCE > ERROR (-2147217900) Invalid column name 'PALETIZADO-RETRACTILADO_EUR_MT'.
+14:05:51 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.

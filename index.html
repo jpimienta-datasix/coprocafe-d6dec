@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<!--[if lte IE 9]>
+	<html class="ie ie9">
+	<![endif]-->
+<!--[if !IE]><!-->
+<html>
+<!--<![endif]-->
+<!-- 
+			DataEntry Contratos v1.0 20151113-20170308
+			http://www.datasix.es / jpimienta@datasix.es 
+			Está guardado con formato	UTF-8 
+		-->
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta http-equiv="Cache-control" content="no-cache" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta author="http://www.datasix.es - jpimienta@datasix.es" />
+    <meta description="DataEntry Contratos. Versión 1.0.20170308" />
+    <title>COPROCAFÉ IBÉRICA :: (D6DEC) DataEntry Contratos</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel=stylesheet href="css/style.css">
+    <!-- jquery & jquery UI / Theme Roller: South Street-->
+    <!-- TO DO: Utilizar las librerías gestionadas por bower -->
+    <link rel=stylesheet href="js/jquery-ui-1.11.4/jquery-ui.min.css">
+    <script type="text/javascript" src="js/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/jquery-scrollto.js"></script>
+    <!--.-->
+    <!-- jtable -->
+    <link rel=stylesheet href="css/jtable/jqueryui/jtable_jqueryui.css">
+    <!-- <link rel=stylesheet href="js/jtable/themes/metro/green/jtable.css"> -->
+    <script type="text/javascript" src="js/jtable/external/json2.min.js"></script>
+    <!-- >> ATENCIÓN: se han introducido cambios en el Widget jquery.table.js (Están indicados con DATASIX) -->
+    <script type="text/javascript" src="js/jtable/jquery.jtable.js"></script>
+    <script type="text/javascript" src="js/jtable/localization/jquery.jtable.es.js"></script>
+    <!--.-->
+    <!-- D6FrameworkJS -->
+    <script type="text/javascript" src="js/d6.fmk.js"></script>
+    <!-- JQuery sortScroll -->
+    <script type="text/javascript" src="https://cdn.rawgit.com/jadus/jquery-sortScroll/v1.3.0/jquery.sortScroll.min.js"></script>
+    <style type="text/css">
+        /*--------------*/
+        /*-- Main CSS --*/
+        /*--------------*/
+        
+        select, input {
+            border: 1px dotted grey;
+        }
+        
+        label {
+            font-weight: bolder;
+        }
+        
+        .bckErr {
+            background-color: #FF8080;
+        }
+        
+        .bckOk {
+            background-color: #CFE6CF;
+        }
+        
+        .ldng {
+            background-color: #81BEF7;
+        }
+        
+        #loadInfo {
+            display: none;
+        }
+        
+        #txtInfo {
+            padding: 10px
+        }
+        
+        #wrp_pnl_hst {
+            margin-bottom: 10px;
+        }
+        
+        #wrp_jtable {
+            width: 1060px; /* 800px */
+            border: 1 dotted red;
+            overflow: auto;
+        }
+        
+        .jtable-main-container {
+            min-width: 800px !important;
+        }
+        
+        .block {
+            display: block;
+            margin: 10px 0px
+        }
+        
+        #lnks_ctto {
+            display: none;
+        }
+
+        /* jtable */
+		#jtable_cttos tbody, #jtable_cttos thead,
+		#jtable_vc tbody, #jtable_vc thead  {
+		    font-size: 12px !important;
+		}
+
+        /* :: Contratos */
+        
+        .box {
+            border: 1px dotted gray;
+            border-radius: 11px;
+            padding: 10px;
+            margin: 15px 5px;
+            width: 1010px;
+            background-color: snow;
+            box-shadow: 3px 3px 1px rgba(50, 50, 50, 0.15);
+            text-align: center
+        }
+        
+        .stit {
+            font-weight: 800;
+            color: #408d05
+        }
+        
+        #wrp_ctto {
+            margin-top: 50px;
+            margin-left: 10px
+        }
+        
+        #spn_ctto_btns {
+            margin: 15px auto;
+        }
+        .inp_cod {
+            width: 60px;
+            background-color: lightblue;
+            color: black;
+            text-align: center;
+        }
+        .readonly {
+        	background-color: lightblue;
+            color: black;
+        }
+        
+        /* los 'span' con 'id' que empiecen por... */
+        /* Para separarlo de los 'combobox()' ya que el botón del desplegable ocupa su espacio */
+        /*
+        span[id^="spn_ct_cod"]{ 
+            margin-left: 35px; 
+        }
+        */
+        
+        /* Para separar los 'combobox()' del siguiente elemento ya que el botón del desplegable ocupa su espacio */
+        .marginRight35 {
+            margin-right: 35px;
+        }
+        
+        
+        /*----------------------*/
+        /*-- Google Web Fonts --*/
+        /*----------------------*/
+        /*-- Submenú --*/
+        
+        .wf-loading a.section {
+            font-family: arial;
+            font-weight: 300;
+            font-size: 15px;
+            color: #5E5E5E;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .wf-inactive a.section {
+            font-family: arial;
+            font-weight: 300;
+            font-size: 15px;
+            color: #5E5E5E;
+            text-decoration: none;
+            outline: none;
+        }
+        
+        .wf-active a.section {
+            font-family: 'Lobster', arial;
+            font-weight: 300;
+            font-size: 18px;
+            color: #91939b; /* #979b91 */
+            text-decoration: none;
+            outline: none;
+        }
+        
+        a.section:hover {
+            color: royalblue;
+            cursor: pointer;
+            border-bottom: 1px dotted;
+        }
+        /*-- Menú --*/
+        
+        .wf-loading a.lnkMnu {
+            font-family: arial;
+            font-weight: 300;
+            font-size: 18px;
+            color: #5E5E5E;
+        }
+        
+        .wf-inactive a.lnkMnu {
+            font-family: arial;
+            font-weight: 300;
+            font-size: 18px;
+            color: #5E5E5E;
+        }
+        
+        .wf-active a.lnkMnu {
+            font-family: 'Lobster', arial;
+            font-weight: 300;
+            font-size: 20px;
+            color:   steelblue; /* #5E5E5E */
+        }
+        
+        .wf-active a.lnkMnuHover {
+            font-family: 'Lobster', arial;
+            font-weight: 300;
+            font-size: 20px;
+            color: #fff;
+        }
+        
+        .wf-active a.lnkMnuOut {
+            font-family: 'Lobster', arial;
+            font-weight: 300;
+            font-size: 20px;
+        	color: grey;
+        }
+                
+        #mnu_icon { display: none; }
+        /*-- Títulos --*/
+        
+        .wf-loading .titulo {
+            font-family: arial;
+            font-weight: 800;
+            font-size: 28px;
+            /* color: #041d6d; /* #408d05; */
+        }
+        
+        .wf-inactive .titulo {
+            font-family: arial;
+            font-weight: 800;
+            font-size: 28px;
+            /* color: #041d6d; */
+        }
+        
+        .wf-active .titulo {
+            font-family: 'Kalam', arial;
+            font-weight: 600;
+            font-size: 28px;
+            /* color: #041d6d; */
+        }
+        
+        .wf-loading .tit {
+            font-family: arial;
+            font-weight: 800;
+            font-size: 24px;
+            color: #041d6d;
+        }
+        
+        .wf-inactive .tit {
+            font-family: arial;
+            font-weight: 800;
+            font-size: 24px;
+            color: #041d6d;
+        }
+        
+        .wf-active .tit {
+            font-family: 'Kalam', arial;
+            font-weight: 800;
+            font-size: 24px;
+            color: #041d6d;
+        }
+        
+        .wf-active .stit {
+            font-family: 'Kalam', arial;
+            font-weight: 800;
+            font-size: 18px;
+            color: #041d6d;
+        }
+        /*-- Etiquetas preguntas --*/
+        
+        .wf-loading .etpreg {
+            font-family: arial;
+            font-weight: 600;
+            font-size: 14px;
+            color: #000;
+        }
+        
+        .wf-inactive .etpreg {
+            font-family: arial;
+            font-weight: 600;
+            font-size: 14px;
+            color: #000;
+        }
+        
+        .wf-active .etpreg {
+            font-family: 'PT Sans', arial;
+            font-weight: 800;
+            font-size: 16px;
+            color: #000;
+        }
+        /*-------------------------------*/
+        /*-- JQuery UI :: Autocomplete --*/
+        /*-------------------------------*/
+        
+        .custom-combobox {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .custom-combobox-toggle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin-left: -1px;
+            padding: 0;
+        }
+        
+        .custom-combobox-input {
+            margin: 0;
+            padding: 2px 2px;
+        }
+        /*-----------------------------*/
+        /*-- Botón flotante para TOP --*/
+        /*-----------------------------*/
+        
+        a.back-to-top {
+            display: none;
+            width: 30px;
+            height: 30px;
+            text-indent: -9999px;
+            position: fixed;
+            z-index: 999;
+            right: 20px;
+            bottom: 20px;
+            background: url("img/arrow-icon-up-blue.png") no-repeat center 43%;
+            /* #428F38 */
+            /* #27AE61 */
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+        /*---------------*/
+        /*-- Accordion --*/
+        /*---------------*/
+        #accordion {
+            margin-left: 20px;
+        }
+        #wrp_accordion {
+            height: 305px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <!---------->
+        <!-- Menú -->
+        <!---------->
+        <div id="menu_w" class="navigation">
+	    	<div id="mnu_icon">
+	            <div id="logoIcon">
+	                <img src="img/coprocafe_icon.png" />
+	            </div>
+	            <div id="Menu_icono">
+		            <div id="icn_showmnu">
+		            	<img src="img/menu_green.png" style="cursor: pointer;" onclick="SHMnu('S');" title="Mostrar Menú" />
+		            </div>
+	            </div>
+	    	</div>
+        	<div id="mnu_ppal">
+	            <div id="logoCOPROCAFE">
+	                <img src="img/logo.gif" />
+	            </div>
+	            <div class="titulo ui-state-default">DataEntry Contratos</div>
+	            <ul id="mnu">
+	                <li class="mnuItm">
+	                    <a id="mnuHst" class="lnkMnu" href="#" onclick="ShowMnu('H',this.id); resetForm();">Histórico</a>
+	                </li>
+	                <li class="mnuItmOut">
+	                    <a id="mnuCtto" class="lnkMnuOut">Contrato</a> 
+	                    <!-- <a id="mnuCtto" class="lnkMnuOut" href="#" onclick="ShowMnu('C',this.id)">Contrato</a> -->
+	                </li>
+	                <ul id="lnks_ctto">
+	                    <li><a href="#" id="lnk_clpr" class="section">Clientes / Proveedores</a></li>
+	                    <li><a href="#" id="lnk_prd" class="section">Producto</a></li>
+	                    <li><a href="#" id="lnk_cndent" class="section">Cond. Entrega</a></li>
+	                    <li><a href="#" id="lnk_cnt" class="section">Cantidad</a></li>
+	                    <li><a href="#" id="lnk_prc" class="section">Precio</a></li>
+	                    <li><a href="#" id="lnk_ent" class="section">Entrega / Embarque</a></li>
+	                    <!-- <li><a href="#" id="lnk_apl" class="section">Aplicación</a></li> -->
+	                    <li><a href="#" id="lnk_otrcnd" class="section">Otras condiciones</a></li>
+	                    <li><a href="#" id="lnk_doc" class="section">Documentación</a></li>
+	                    <li><a href="#" id="lnk_cndesp" class="section">Cond. Especiales</a></li>
+	                    <li><a href="#" id="lnk_gnr" class="section">Generar</a></li>
+	                </ul>
+	            </ul>
+	            <div id="logoDATASIX">
+	                <a href="http://www.datasix.es" target="_blank"><img src="img/DATASIX.p.jpg" /></a>
+	            </div>
+				<div id="version">versión<br/>1.0.20170308</div>
+	            <div id="icn_hidemnu" style="text-align: left;"><img src="img/icon-green-arrow-left.png" style="cursor: pointer;" onclick="SHMnu('H');" title="Ocultar Menú" /></div>
+            </div>
+        </div>
+        <!-- --- -->
+        <!-- App -->
+        <!-- --- -->
+            <span id="ldr">
+                <img src="img/3D_coffee_cup.loader.gif" /><br/>Trabajando...
+            </span>      
+            <div id="app_w" class="sort-scroll-container">
+            <div id="tsk_hst">
+                <div id="wrp_pnl_hst">
+                    <div id="pnl_sel">
+                        <div class="tit">HISTÓRICO</div>
+                        <div id="accordion"> <!-- Accordion:inicio -->
+                        <h3><!-- botón para Accordion --></h3>
+                        <div id="wrp_accordion">
+                        <table id="tbl_ccp" width="100%" border="0" cellpadding="10">
+                            <tr>
+                                <td>
+                                    <label class="etpreg" for="slc_cia">Compañía:</label>
+                                    <select name="slc_cia" id="slc_cia">
+                                        <option value="ALL" selected>Todas</option>
+                                        <option value="CO">COPROCAFÉ</option>
+                                        <option value="ZZ">BRIC</option>
+                                        <option value="BM">BROKERAGE</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="etpreg" for="slc_ctto">Contrato:</label>
+                                    <select name="slc_ctto" id="slc_ctto">
+                                    	<option value="T">Todos</option>
+                                        <option value="V" selected>Venta</option>
+                                        <option value="C">Compra</option>
+                                        <option value="O">Oferta</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="etpreg" for="slc_clpr">Cliente:</label>
+                                    <select name="slc_clpr" id="slc_clpr"></select>
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tbl_qoc" border="0" width="100%" cellpadding="10">
+                            <tr>
+                                <td>
+                                    <label class="etpreg" for="slc_qgr">Quality Group:</label>
+                                    <select name="slc_qgr" id="slc_qgr"></select>
+                                </td>
+                                <td>
+                                    <label class="etpreg" for="slc_ogn">Origen:</label>
+                                    <select name="slc_ogn" id="slc_ogn"></select>
+                                </td>
+                                <td>
+                                    <label class="etpreg" for="slc_qlt">Calidad:</label>
+                                    <select name="slc_cld" id="slc_qlt"></select>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <span class="etpreg">Modificación</span>
+                        <label for="chk_Mod">No</label>
+                        <input type="checkbox" value="Y" id="chk_Mod"/>
+                        <br/>
+                        <br/>
+                        <label class="etpreg" for="slc_nregs">Mostar últimos:</label>
+                        <fieldset>
+                            <div id="slc_nregs">
+                                <input type="radio" id="nregs_10F" name="slc_nregs" checked="checked" value="10">
+                                <label for="nregs_10F">10</label>
+                                <input type="radio" id="nregs_20F" name="slc_nregs" value="20">
+                                <label for="nregs_20F">20</label>
+                                <input type="radio" id="nregs_50F" name="slc_nregs" value="50">
+                                <label for="nregs_50F">50</label>
+                                <input type="radio" id="nregs_75F" name="slc_nregs" value="75">
+                                <label for="nregs_75F">75</label>
+                                <input type="radio" id="nregs_100F" name="slc_nregs" value="100">
+                                <label for="nregs_100F">100</label>
+                            </div>
+                        </fieldset>
+                        <br/>
+                        <br/>
+                        <button id="btn_vvc">Ver Ventas (AS/400)</button>
+                        <button id="btn_cttos">Ver Contratos Ventas</button>
+                        <button id="btn_csl">Cargar Selección</button>
+                        </div> <!-- wrp_accordion:fin -->
+                        </div> <!-- Accordion:fin -->
+                    </div>
+                </div>
+                <div id="wrp_jtable">
+                    <div id="jtable_cttos"></div>
+                    <div id="jtable_vc"></div>
+                </div>
+                <!-- Inputs ocultos para traspaso de información entre ambos entornos: HIST/CTTO -->
+                <span id="spn_hide_fields">
+                	<input type="hidden" d6-field="TIPO_DOCUMENTO" d6-fieldType='T' name="inp_h_TDoc" id="inp_h_TDoc"  value="" />
+                	<input type="hidden" d6-field="ENTREGA_UNICA" d6-fieldType='B' name="inp_h_EntUn" id="inp_h_EntUn"  value="" />
+	                <input type="hidden" name="inp_h_qgrN" id="inp_h_qgrN"  value="" />
+	                <input type="hidden" name="inp_h_qgr" id="inp_h_qgr" value="" />
+	                <input type="hidden" name="inp_h_ognN" id="inp_h_ognN" value="" />
+	                <input type="hidden" name="inp_h_ogn" id="inp_h_ogn" value="" />
+	                <input type="hidden" name="inp_h_qltN" id="inp_h_qltN" value="" />
+	                <input type="hidden" name="inp_h_qlt" id="inp_h_qlt" value="" />
+	                <input type="hidden" name="inp_h_clpr" id="inp_h_clpr" value="" />
+	                <input type="hidden" name="inp_h_mnd" id="inp_h_mnd" value="" />
+	                <input type="hidden" name="inp_h_cia" id="inp_h_cia" value="" />
+	                <input type="hidden" name="inp_h_ctto" id="inp_h_ctto" value="" />
+	                <input type="hidden" name="inp_h_fecha" id="inp_h_fecha" value="" />
+	                <input type="hidden" name="inp_h_precio" id="inp_h_precio" value="" />
+	                <input type="hidden" name="inp_h_dif" id="inp_h_dif" value="" />
+	                <input type="hidden" name="inp_h_kgs" id="inp_h_kgs" value="" />
+	                <input type="hidden" name="inp_h_cod-interm" id="inp_h_cod-interm" value=" " />
+	                <input type="hidden" name="inp_h_interm" id="inp_h_interm" value=" " />
+	                <input type="hidden" name="inp_h_condcde" id="inp_h_condcde" value="10" />
+	                <input type="hidden" name="inp_h_condent" id="inp_h_condent" value="FOB" /> <!-- Por defecto FOB  -->
+	                <input type="hidden" name="inp_h_cond" id="inp_h_cond" value="NSW" />
+	                <input type="hidden" name="inp_h_stkexch" id="inp_h_stkexch" value="" />
+	                <input type="hidden" d6-field="PriceType" d6-fieldType="N" name="inp_h_prctpe" id="inp_h_prctpe" value="" />
+	                <input type="hidden" name="inp_h_ftm" id="inp_h_ftm" value="" />
+	                <input type="hidden" name="inp_h_sdte" id="inp_h_sdte" value="" />
+	                <input type="hidden" name="inp_h_orgbags" id="inp_h_orgbags" value="" />
+	                <input type="hidden" name="inp_h_contratode" id="inp_h_contratode" value="" />
+                </span>
+                <!-- Para abrir el PDF en nueva ventana/pestaña -->
+                <a id="openPDF" href='#'></a>
+            </div>
+            <div id="tsk_ctto">
+                <div id="wrp_ctto">
+                    <a name="bx_top"></a>
+                    <div class="tit">CONTRATO</div>
+                    <div class="box" id="ctto">
+                        <a name="bx_ctto"></a>
+                        <span id="spn_ct_contrato">
+                                <label for="ct_contrato" class="etpreg">NºContrato: </label>
+                                <input type="text" d6-field="Ctr" d6-fieldType='T' name="ct_contrato" id="ct_contrato" placeholder="Contrato" title="Provisional" />
+                                &nbsp;<input d6-field="MODIFICACION" d6-fieldType='T' id="ct_nummod" name="ct_nummod" type="text" readonly="readonly" value="" title="Nº Modificación" />
+                                </span>
+                        <span id="spn_ct_compania">
+                                <label for="ct_compania" class="etpreg">Entidad: </label>
+                                <input type="text" name="ct_compania" id="ct_compania" placeholder="Compañía" readonly class="readonly txtalign-center" />
+                                <input type="hidden" d6-field="Comp" d6-fieldType='T' name="ct_codcia" id="ct_codcia" value=""/>
+                                </span>
+                        <span id="spn_ct_fecha">
+                                <label for="ct_fecha" class="etpreg">Fecha: </label>
+                                <input type="text" d6-field="CtrDate" d6-fieldType='D' name="ct_fecha" id="ct_fecha" placeholder="Fecha" readonly class="readonly txtalign-center"/>
+                                </span>
+                    </div>
+                    <div class="box" id="ctto_clipro">
+                        <a name="bx_clipro"></a>
+                        <div class="stit">CLIENTES / PROVEEDORES</div>
+                        <span id="spn_ct_contratode" class="block">
+                                <label for="ct_contratode" class="etpreg">Contrato: </label>
+                                <select d6-field="CONTRATO_DE" d6-fieldType='T' name="ct_contratode" id="ct_contratode">
+                                    <option value="V">Venta</option>
+                                    <option value="C">Compra</option>
+                                    <option value="O">Oferta</option>
+                                </select>	
+                                </span>
+                        <span id="spn_ct_tipo-contrato" class="block">
+                                <label for="ct_tipo-contrato" class="etpreg">Tipo Contrato: </label>
+                                <select d6-field="TIPO_CONTRATO" d6-fieldType='T' name="ct_tipo-contrato" id="ct_tipo-contrato">
+                                    <option value="CO">COPROCAFÉ</option>
+                                    <option value="ZZ">BRIC</option>
+                                    <option value="BM">BROKERAGE</option>
+                                    <option value="CODWT">DESCAFEINADO / WATER TREATED</option>
+                                </select>	
+                                </span>
+                        <span id="spn_ct_moneda" class="block">
+                                <label for="ct_moneda" class="etpreg">Moneda: </label>
+                                <select d6-field="CurrName" d6-fieldType='T' name="ct_moneda" id="ct_moneda">
+                                    <option value="USD">USD</option>
+                                    <option value="EUR">EUR</option>
+                                </select>	
+                                </span>
+                        <span id="spn_ct_clpr">
+                                <label for="ct_clpr" class="etpreg">Cliente / Proveedor: </label>
+                                <select name="ct_clpr" id="ct_clpr"></select> 
+                                </span>
+								<input d6-field="CLIENTE_PROVEEDOR" d6-fieldType='T' type="hidden" name="inp_h_txt_clpr" id="inp_h_txt_clpr" />
+                        <span id="spn_ct_cod-clpr">
+                                <label for="ct_cod-clpr" class="etpreg">Cód.: </label>
+                                <input type="text" d6-field="AccNo" d6-fieldType='T' name="ct_cod-clpr" id="ct_cod-clpr" placeholder="Código" class="inp_cod" readonly/>
+                                </span>
+                        <span id="spn_ct_refclipro" class="block">
+                        	<label for="ct_refclipro" class="etpreg">Ref. Cliente: </label>
+                        	<input type="text" name="ct_refclipro" id="ct_refclipro" d6-field="REF_CLIPRO" d6-fieldtype="T" />	
+                        </span>
+                    </div>
+                    <div class="box" id="ctto_prod">
+                        <a name="bx_prod"></a>
+                        <div class="stit">PRODUCTO</div>
+                        <span id="blq_ct_qgr" class="block">                
+                                <span id="spn_ct_qgr">  
+                                <label class="etpreg" for="ct_qgr">Quality Group:</label>
+                                <select name="ct_qgr" id="ct_qgr"></select>                                
+                                </span>
+                                <input d6-field="QualityGroup" d6-fieldType='T' type="hidden" name="inp_h_txt_qgr" id="inp_h_txt_qgr" />
+                        <span id="spn_ct_cod-qgr">
+                                <label for="ct_cod-qgr" class="etpreg">Cód.: </label>
+                                <input type="text" d6-field="QualGrpNo" d6-fieldType='T' name="ct_cod-qgr" id="ct_cod-qgr" placeholder="Código" class="inp_cod" value="xx"/>
+                                </span>
+                        </span>
+                        <span id="blq_ct_ong" class="block">
+                                <span id="spn_ct_ogn">  
+                                <label class="etpreg" for="ct_ogn">Origin:</label>
+                                <select name="ct_ogn" id="ct_ogn"></select>                                
+                                </span>
+                                <input d6-field="Origin" d6-fieldType='T' type="hidden" name="inp_h_txt_ogn" id="inp_h_txt_ogn" />
+                        <span id="spn_ct_cod-ogn">
+                                <label for="ct_cod-ogn" class="etpreg">Cód.: </label>
+                                <input type="text" d6-field="OrigNo" d6-fieldType='T' name="ct_cod-ogn" id="ct_cod-ogn" placeholder="Código" class="inp_cod" readonly/>
+                                </span>
+                        </span>
+                        <span id="blq_ct_qlt" class="block">
+                                <span id="spn_ct_qlt">  
+                                <label class="etpreg" for="ct_qlt">Quality:</label>
+                                <select name="ct_qlt" id="ct_qlt"></select>  
+                                </span>
+                                <input d6-field="Quality" d6-fieldType='T' type="hidden" name="inp_h_txt_qlt" id="inp_h_txt_qlt" />
+                        <span id="spn_ct_cod-qlt">
+                                <label for="ct_cod-qlt" class="etpreg">Cód.: </label>
+                                <input type="text" d6-field="QualNo" d6-fieldType='T' name="ct_cod-qlt" id="ct_cod-qlt" placeholder="Código" class="inp_cod" readonly/>
+                                </span>
+                        </span>
+                        <span id="spn_ct_qltc" class="block">
+                                <label for="ct_qltc" class="etpreg">Calidad cliente: </label>
+                                <select type="text" name="ct_qltc" id="ct_qltc" ></select>
+                                <img src="img/refresh.png" id="btn_rfsh_qltc" title="Cargar Calidad-Cliente" class="cursorPointer" style="position:relative; top:5px;" onclick="reloadQLTC();" />
+                                </span>        
+                                <input d6-field="CALIDAD_CLIENTE" d6-fieldType='T' type="hidden" name="inp_h_txt_qltc" id="inp_h_txt_qltc" />
+                                <input name="inp_h_qltc_nuevo" id="inp_h_qltc_nuevo" type="hidden" value="N" />
+                        <span id="spn_ct_pdcert" class="block">                                
+                                <label class="etpreg" for="ct_pdcert">Producto certificado: </label>
+                                <span id="ct_pdcert">
+                                    <input type="checkbox" id="ct_pdcert_UTZ" name="ct_pdcert" value="UTZ">
+                                    <label for="ct_pdcert_UTZ">UTZ</label>
+                                    <input type="checkbox" id="ct_pdcert_Fairtrade" name="ct_pdcert" value="Fairtrade">
+                                    <label for="ct_pdcert_Fairtrade">Fairtrade</label>
+                                    <input type="checkbox" id="ct_pdcert_Organico" name="ct_pdcert" value="Orgánico">
+                                    <label for="ct_pdcert_Organico">Orgánico</label>
+                                    <input type="checkbox" id="ct_pdcert_Rainforest" name="ct_pdcert" value="Rainforest">
+                                    <label for="ct_pdcert_Rainforest">Rainforest</label>
+                                    <input type="checkbox" id="ct_pdcert_4CNQCC" name="ct_pdcert" value="4C. NQCC (Calidad Nestlé)">
+                                    <label for="ct_pdcert_4CNQCC">4C. NQCC (Calidad Nestlé)</label>
+                                </span>
+                                <!-- Producto Certificado: NO -->
+                                <input type="checkbox" id="ct_pdcert_NO" name="ct_pdcert_NO" value="NO">
+	                            <label for="ct_pdcert_NO">NO</label>
+	                            <!---->
+                                <input d6-field="PRODUCTO_CERTIFICADO" d6-fieldType='T' type="hidden" name="inp_h_txt_pdcert" id="inp_h_txt_pdcert" />
+                        </span>
+                    </div>
+                    <div class="box" id="ctto_condentr">
+                        <a name="bx_condentr"></a>
+                        <div class="stit">CONDICIONES ENTREGA / CÁLCULO</div>
+                        <span id="blq_ct_condentr" class="block">
+                                <span id="spn_ct_condentr">  
+	                                <label class="etpreg" for="ct_condent">Condición entrega: </label>
+	                                <select name="ct_condent" id="ct_condent" d6-field="COST_RATE_CODE" d6-fieldType="T"></select>
+                                </span>
+                                <input d6-field="CondCode" d6-fieldType='T' type="hidden" name="inp_h_cdcondent" id="inp_h_cdcondent" />
+                                <input d6-field="Condition" d6-fieldType='T' type="hidden" name="inp_h_txt_condent" id="inp_h_txt_condent" />
+	                        	<span id="spn_ct_mrclegal">
+	                                <label for="ct_mrclegal" class="etpreg">Marco legal: </label>
+	                                <select d6-field="MARCO_LEGAL" d6-fieldType='T' name="ct_mrclegal" id="ct_mrclegal"></select>
+	                            </span>
+		                </span>
+                        <table id="tbl_fltcam">
+                            <tr>
+                                <th colspan="2"><span class="etpreg">Flete (Hoja Fletes)</span></th>
+                                <th width="5%"></th>
+                                <th colspan="2"><span class="etpreg">Camión (Hoja Camión)</tr></th>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_fltogn" class="etpreg">Origen:</label></td>
+                                <td class="txtalign-left"><span class="ui-icon ui-icon-trash" id="ico_tsh_fltogn"></span><span><select d6-field="FLETE_ORIGEN" d6-fieldType='T' name="ct_fltogn" id="ct_fltogn"></select></span>
+                                <td></td>
+                                <td class="txtalign-right"><label for="ct_camogn" class="etpreg">Origen:</label></td>
+                                <td class="txtalign-left"><span class="ui-icon ui-icon-trash" id="ico_tsh_camogn"></span><span><select d6-field="CAMION_ORIGEN" d6-fieldType='T' name="ct_camogn" id="ct_camogn"></select></span></td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_fltdst" class="etpreg">Destino:</label></td>
+                                <td class="txtalign-left"><span class="ui-icon ui-icon-trash" id="ico_tsh_fltdst"></span><span><select d6-field="FLETE_DESTINO" d6-fieldType='T' name="ct_fltdst" id="ct_fltdst"></select></span></td>
+                                <td></td>
+                                <td class="txtalign-right"><label for="ct_camdst" class="etpreg">Destino:</label></td>
+                                <td class="txtalign-left"><span class="ui-icon ui-icon-trash" id="ico_tsh_camdst"></span><span><select d6-field="CAMION_DESTINO" d6-fieldType='T' name="ct_camdst" id="ct_camdst"></select></span></td>
+                            </tr>
+                            <tr id="tr_info_fltcam">
+                                <td colspan="2">
+                                   <div id="spn_info_flt_nodata" class="ui-state-error ui-corner-all padding10">
+                                       <span class="ui-button-icon-primary ui-icon ui-icon-alert"></span>
+                                       Esta ruta no está definida.                                       
+                                    </div>
+                                   <span id="spn_info_flt" class="block">
+                                        <table id="tbl_info_flt">
+                                            <tr>
+                                                <th>Container</th>
+                                                <th>Descripción</th>
+                                                <th>Precio</th>
+                                                <th>Naviera</th>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="text" id="ct_flt_cnt" readonly class="txtalign-center" /></td>
+                                                <td><input type="text" id="ct_flt_desc" readonly class="txtalign-center" /></td>
+                                                <td><input type="text" id="ct_flt_precio" readonly class="txtalign-center" /></td>
+                                                <td><input type="text" id="ct_flt_nav" readonly class="txtalign-center" /></td>
+                                            </tr>
+                                        </table>
+                                   </span>
+                                </td>
+                                <td></td>
+                                <td colspan="2">
+                                    <div id="spn_info_cam_nodata" class="ui-state-error ui-corner-all padding10">
+                                        <span class="ui-button-icon-primary ui-icon ui-icon-alert"></span>
+                                        Esta ruta no está definida.
+                                    </div>                 
+                                    <span id="spn_info_cam" class="block ui-state-default ui-corner-all padding10">
+                                        <span class="ui-button-icon-primary ui-icon ui-icon-check"></span>
+                                        Ruta de origen y destino correcta.                                        
+                                    </span>
+                                    <input type="hidden" name="inp_h_costecam" id="inp_h_costecam" value=""/><!-- COSTE de CAMIÓN -->
+                                    <input type="hidden" name="inp_h_costecammda" id="inp_h_costecammda" value=""/> <!-- MONEDA del COSTE para CAMIÓN -->
+                                </td>
+                            </tr>
+                        </table>
+                        <table id="tbl_condfltcam">
+                            <tr>
+                                <td><span class="etpreg">Seguro (Flete):</span></td>
+                                <td class="txtalign-left"><label for="ct_fltsgr">No</label><input d6-field="FLETE_SEGURO" d6-fieldType='B' type="checkbox" name="ct_fltsgr" id="ct_fltsgr"/></td>
+                                <td><span class="etpreg">Paletizado: </span><label for="ct_plt">No</label><input d6-field="PALETIZADO" d6-fieldType='B' type="checkbox" name="ct_plt" id="ct_plt"/></td>
+                                <td class="txtalign-right"><span class="etpreg">Retractilado (Camión): </span><label for="ct_camrtc">No</label><input d6-field="CAMION_RETRACTILADO" d6-fieldType='B' type="checkbox" name="ct_camrtc" id="ct_camrtc"/></td>
+                                <td><span class="etpreg">Flejado (Camión): </span><label for="ct_camflj">No</label><input d6-field="CAMION_FLEJADO" d6-fieldType='B' type="checkbox" name="ct_camflj" id="ct_camflj"/></td>
+                            </tr>                            
+                        </table>    
+                        <table id="tbl_dsppeso">
+                           <tr>
+                               <td>
+                                    <span class="etpreg">Despachado:</span>
+                                    <label for="ct_dsp">No</label>
+                                    <input d6-field="DESPACHADO" d6-fieldType='B' type="checkbox" name="ct_dsp" id="ct_dsp"/>
+                               </td>
+                               <td>
+                                    <label class="etpreg" for="ct_peso">Peso: </label>
+                                    <span id="ct_peso">
+                                        <input type="radio" id="ct_peso_NSW" name="ct_peso" checked="checked" value="NSW">
+                                        <label for="ct_peso_NSW">NSW</label>
+                                        <input type="radio" id="ct_peso_NDW" name="ct_peso" value="NDW">
+                                        <label for="ct_peso_NDW">NDW</label>
+                                        <input type="radio" id="ct_peso_REW" name="ct_peso" value="REW">
+                                        <label for="ct_peso_REW">REW</label>
+                                        <input type="radio" id="ct_peso_WW" name="ct_peso" value="WW">
+                                        <label for="ct_peso_WW">WW</label>
+                                    </span>      
+                                    <input d6-field="PESO" d6-fieldType='T' type="hidden" name="inp_h_txt_peso" id="inp_h_txt_peso" />
+                               </td>
+                           </tr>
+                        </table>        
+                        <span id="spn_ct_aprmtra">
+                        		<span class="etpreg">Sujeto aprovación muestra</span>
+                        		<label for="ct_aprmtra">No</label>
+								<input d6-field="APROVACION_MUESTRA" d6-fieldType='B' type="checkbox" value="Y" id="ct_aprmtra" />
+                        		<span class="etpreg">No Aprovación no Venta/Contrato</span>
+                        		<label for="ct_noaprnv">No</label>
+								<input d6-field="NO_APROVACION_NO_VTACTTO" d6-fieldType='B' type="checkbox" value="Y" id="ct_noaprnv" />
+                        </span>                                            
+                        <span id="spn_ct_dirent" class="block">
+                                <label for="ct_dirent" class="etpreg">Dirección Entrega Muestra: </label>
+                                <input type="text" d6-field="DIRECCION_ENTREGA_MUESTRA" d6-fieldType='T' name="ct_dirent" id="ct_dirent" placeholder="Dirección" />
+                                </span>
+                        </span>                        
+                    </div>
+                    <div class="box" id="ctto_cant">
+                    	<a name="bx_cant"></a>
+                    	<div class="stit">CANTIDAD</div>
+	                    <table id=tbl_cant>
+	                    	<tr>
+	                    		<th><label for="ct_cant" class="etpreg">Nº Sacos</label></th><!-- ct_cant -->
+	                    		<th><label for="ct_kgs" class="etpreg">Kg./Saco</label></th>
+	                    		<th><label for="ct_totkgs" class="etpreg">Total Kgs.</label></th>
+	                    		<th><label for="ct_tipopaq" class="etpreg">Tipo Entrega</label></th>
+	                    		<th><label for="ct_kgstipo" class="etpreg">Kgs./Tipo</label></th>
+	                    		<th><label for="ct_tipopaq_udades" class="etpreg">Unidades</label></th>
+	                    	</tr>
+	                    	<tr>
+								<td><input d6-field="CANTIDAD" d6-fieldType='N' type="text" name="ct_cant" id="ct_cant" placeholder="Cantidad"/></td>
+								<td><input d6-field="KGS" d6-fieldType='N' type="text" name="ct_kgs" id="ct_kgs" placeholder="Kgs."/></td>
+								<td><input type="text" d6-field="TotalKg" d6-fieldType='N' id="ct_totkgs" name="ct_totkgs" value="" readonly="" class="readonly txtalign-center" /></td>
+								<td>
+	                                <select name="ct_tipopaq"' id="ct_tipopaq"  d6-field="TypeOfLoading" d6-fieldType='T'>
+	                                    <option value="Bulk">Bulk</option>
+	                                    <option value="Bags">Big Bags</option>
+	                                    <option value="OrgBags">Sacos origen</option>
+	                                    <option value="Boxes">Cajas</option>
+	                                </select>          
+									<input d6-field="CANTIDAD_TIPO" d6-fieldType='T' type="hidden" name="inp_h_txt_tipopaq" id="inp_h_txt_tipopaq" />
+								</td>
+								<td><input d6-field="KGS_TIPO" d6-fieldType='N' type="text" name="ct_kgstipo" id="ct_kgstipo" placeholder="Kgs."/></td>
+								<td><input d6-field="UNIDADES_TypeOfLoading" d6-fieldType='N' type="text" name="ct_tipopaq-udades" id="ct_tipopaq-udades" readonly="" class="readonly txtalign-center" /></td>
+	                    	</tr>
+	                    </table>
+                    </div>
+                    <!--
+                    <div class="box" id="ctto_cant_old">
+                        <a name="bx_cant"></a>
+                        <div class="stit">CANTIDAD</div>
+                        <span id="blq_ct_condentr" class="block">                                
+                                <span id="spn_ct_cant">
+                                <label for="ct_cant" class="etpreg">Cantidad: </label>
+                                <input d6-field="CANTIDAD" d6-fieldType='N' type="text" name="ct_cant" id="ct_cant" placeholder="Cantidad"/>
+                                </span>
+                        <span id="spn_ct_tipopaq">  
+                                <select name="ct_tipopaq"' id="ct_tipopaq"  d6-field="TypeOfLoading" d6-fieldType='T'>
+                                    <option value="Bulk">Bulk</option>
+                                    <option value="Bags">Big Bags</option>
+                                    <option value="OrgBags">Sacos origen</option>
+                                    <option value="Boxes">Cajas</option>
+                                </select>          
+                                </span>
+                                <input d6-field="CANTIDAD_TIPO" d6-fieldType='T' type="hidden" name="inp_h_txt_tipopaq" id="inp_h_txt_tipopaq" />
+                        <span> de </span>
+                        <span id="spn_ct_kgs">
+                                <input d6-field="KGS" d6-fieldType='N' type="text" name="ct_kgs" id="ct_kgs" placeholder="Kilos"/>
+                                </span>
+                        <span> kgs.</span>
+                        <label for="ct_totkgs" class="etpreg">Total Kgs.: </label>
+                        <input type="text" d6-field="TotalKg" d6-fieldType='N' id="ct_totkgs" name="ct_totkgs" value=""/>
+                        </span>
+                    </div> 
+                    -->
+                    <div class="box" id="ctto_precio">
+                        <a name="bx_precio"></a>
+                        <div class="stit">PRECIO</div>
+                        <table id="tbl_precio">
+                        	<!--
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th><span class="etpreg">Valor</span></th>
+                                <th><span class="etpreg">Unidad</span></th>
+                                <th>&nbsp;</th>
+                            </tr>
+                            -->
+                            <tr>
+                                <td><label for="ct_mdo-valor" class="etpreg">Mercado: </label></td>
+                                <td class="txtalign-left">
+                                    <input type="text" d6-field="MERCADO_VALOR" name="ct_mdo-valor" d6-fieldType='N' id="ct_mdo-valor" placeholder="Valor Mercado" />&nbsp;
+                                    <input type="text" d6-field="NetStockExch" name="ct_mdo-stckexch" d6-fieldType="T" id="ct_mdo-stckexch" class="readonly txtalign-center" style="cursor:help;" readonly="" title="Mercado de..."/>&nbsp;
+                                	<input type="text" id="ct_mdo-udad" d6-field="MERCADO_UNIDAD" d6-fieldType='T' class="readonly txtalign-center" value="EUR/MT" readonly />                                    
+                                </td>
+                                <td>
+                                	&nbsp;
+                                    <!-- <select name="ct_mdo-udad" id="ct_mdo-udad" d6-field="MERCADO_UNIDAD" d6-fieldType='T'></select> -->
+                                </td>
+                                <td>
+                                	<label for="ct_acuerdos" class="etpreg">Acuerdos: </label>
+                                	<input d6-field="ACUERDOS" d6-fieldType='N' type="text" name="ct_acuerdos" id="ct_acuerdos" placeholder="" />
+                                	<input type="text" name="ct_acuerdos-udad" id="ct_acuerdos-udad" d6-field="ACUERDOS_UNIDAD" d6-fieldType="T" readonly="" class="readonly txtalign-center" value="EUR/MT" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_rate-valor" class="etpreg">Rate €/$: </label></td>
+                                <td class="txtalign-left">
+                                    <input d6-field="RATE_EURUSD" d6-fieldType='N' type="text" name="ct_rate-valor" id="ct_rate-valor" placeholder="Rate €/$" />
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                	<label for="ct_margen" class="etpreg">Margen: </label>
+                                	<input d6-field="MARGEN" d6-fieldType='N' type="text" name="ct_margen" id="ct_margen" placeholder="" />
+                                	<input type="text" name="ct_margen-udad" id="ct_margen-udad" d6-field="MARGEN_UNIDAD" d6-fieldType="T" readonly="" class="readonly txtalign-center" value="EUR/MT" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_fijo-valor" class="etpreg">Fijo: </label></td> 
+                                <!--
+                                (<span class="cursorHelp" title="Al dejarlo en blanco y pulsar [Calcular], se calcula el Diferencial. En caso contrario, lo utiliza como valor FIjo.">?</span>)
+                                -->
+                                <td class="txtalign-left">
+                                    <!-- <span class="ui-icon ui-icon-trash" id="ico_tsh_fijo-valor" style="margin-left:20px"></span> -->
+                                    <input d6-field="OutRightPrice" d6-fieldType='N' type="text" name="ct_fijo-valor" id="ct_fijo-valor" placeholder="Fijo" />&nbsp;
+                                    <span>
+                                    	<select name="ct_fijo-udad" id="ct_fijo-udad" d6-field="FIJO_UNIDAD" d6-fieldType='T' ></select>
+                                    </span>
+                                </td>
+                                <td>
+                                    <button id="ct_btn_calcular-fijo">Calcular Fijo</button>
+                                </td>
+                                <td>
+                                    <span class="etpreg">Pdte. Fijar Moneda: </span>
+                                    <label for="ct_fijmon">No</label>
+                                    <input d6-field="FIJACION_MONEDA" d6-fieldType='B' type="checkbox" value="False" id="ct_fijmon" />
+                                    <!-- <input d6-field="PriceType" d6-fieldType='N' type="hidden" id="ct_prctpe" /> -->                                
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_dif-valor" class="etpreg">En Dif.: </label</td>
+                                <td class="txtalign-left">
+                                    <input d6-field="NetDiff" d6-fieldType='N' type="text" name="ct_dif-valor" id="ct_dif-valor" placeholder="Diferencial" />
+                                </td>
+                                <td>
+                                    <button id="ct_btn_calcular-dif">Calcular Dif.</button>
+                                </td>
+                                <td>
+                                	<span class="etpreg">Pdte. Fijar Mercado: </span>
+                                    <label for="ct_fijmdo">No</label>
+                                    <input d6-field="FIJACION_MERCADO" d6-fieldType='B' type="checkbox" value="False" id="ct_fijmdo" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="4">&nbsp;</td>
+                            </tr>
+                        </table>
+                        <div id="bx_precio_condentr">
+	                        <table id="tbl_precio_condentr" cellpadding="10px" cellspacing="10px">
+	                            <tr>
+	                            	<th>&nbsp;</th>
+	                                <th id="th_FOB">FOB</th>
+	                                <th id="th_C_F">C&F(CFR)</th>
+	                                <th id="th_CIF">CIF</th>
+	                                <th id="th_INSTORE">INSTORE</th>
+	                                <th id="th_EXSTORE">EXSTORE</th>
+	                                <th id="th_FOT">FOT/FCA</th>
+	                                <th id="th_DDU">DDU</th>
+	                                <th id="th_DDP">DDP</th>
+	                            </tr>
+	                            <tr>
+	                            	<td id="td_MON" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_FOB" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_C_F" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_CIF" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_INSTORE" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_EXSTORE" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_FOT" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_DDU" class="ui-state-default ui-corner-all"></td>
+	                                <td id="td_DDP" class="ui-state-default ui-corner-all"></td>
+	                            </tr>
+	                        </table>
+	                        <span id="spn_fobdif">
+	                        	<input type="text" id="ct_fobdif" name="ct_fobdif" readonly class="readonly txtalign-center" value="" />
+	                        </span>
+                        </div>
+                        <!-- <input type="hidden" d6-field="MERCADO_UNIDAD"  d6-fieldType='T' name="inp_h_txt_mdo-udad" id="inp_h_txt_mdo-udad"/> -->
+                        <!-- <input type="hidden" d6-field="FIJO_UNIDAD"  d6-fieldType='T' name="inp_h_txt_fijo-udad" id="inp_h_txt_fijo-udad"/> -->
+                        <table id="tbl_ct_interm" cellpadding="10px">
+                            <tr>
+                                <td><label class="etpreg" for="ct_interm">Intermediario:</label></td>
+                                <td style="width:45%">
+                                	<span class="ui-icon ui-icon-trash" id="ico_tsh_interm"></span>
+                                	<select d6-field="AccNo3" d6-fieldType='T' name="ct_interm" id="ct_interm"></select>
+                                </td>
+                                <td>
+                                    <label for="ct_cod-interm" class="etpreg">Cód.: </label>
+                                    <input type="text" name="ct_cod-interm" id="ct_cod-interm" placeholder="Código" class="inp_cod" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><label class="etpreg" for="ct_otrcom">Otras comisiones:</label></td>
+                                <td>
+                                	<span class="ui-icon ui-icon-trash" id="ico_tsh_otrcom"></span>
+                                	<select d6-field="AccNo2" d6-fieldType='T' name="ct_otrcom" id="ct_otrcom"></select>
+                                </td>
+                               <td>
+                                <label for="ct_cod-otrcom" class="etpreg">Cód.: </label>
+                                <input type="text" name="ct_cod-otrcom" id="ct_cod-otrcom" placeholder="Código" class="inp_cod" readonly/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                	<span class="etpreg">Comisión (interm.): </span>&nbsp;
+                                   	<input type="text" d6-field="COMISION_INTERMEDIARIO" d6-fieldType='N' name="ct_comint-valor" id="ct_comint-valor" placeholder="Comisión" />&nbsp;
+                                    <span>
+                                    	<input type="text" name="ct_comint-udad" id="ct_comint-udad" readonly="" class="readonly txtalign-center" value="EUR/MT" d6-field="COMINT_UNIDAD" d6-fieldType="T" />
+                                    	<!-- <select name="ct_comint-udad" id="ct_comint-udad" d6-field="COMINT_UNIDAD" d6-fieldType='T'></select> -->
+                                    </span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                	<span class="etpreg">Comisión (Otras com.): </span>&nbsp;
+                                    <input type="text" d6-field="COMISION_OTCOM" d6-fieldType='N' name="ct_otrcom-valor" id="ct_otrcom-valor" placeholder="Comisión" />&nbsp;
+                                    <span>
+                                    	<input type="text" name="ct_otrcom-udad" id="ct_otrcom-udad" readonly="" class="readonly txtalign-center" value="EUR/MT" d6-field="COMOTCOM_UNIDAD" d6-fieldType="T" />
+                                    	<!-- <select name="ct_otrcom-udad" id="ct_otrcom-udad" d6-field="COMOTCOM_UNIDAD" d6-fieldType='T'></select>-->
+                                    </span>
+                                </td>
+                            </tr>                            
+                        </table>                        
+                        <input type="hidden" d6-field="Agent" d6-fieldType='T' name="inp_h_txt_interm" id="inp_h_txt_interm" />
+                        <input type="hidden" d6-field="Contractor" d6-fieldType='T' name="inp_h_txt_otrcom" id="inp_h_txt_otrcom" />
+                        <!-- <input type="hidden" d6-field="COMINT_UNIDAD" d6-fieldType='T' name="inp_h_txt_comint-udad" id="inp_h_txt_comint-udad" /> -->
+                        <!-- <input type="hidden" d6-field="COMOTCOM_UNIDAD" d6-fieldType='T' name="inp_h_txt_otrcom-udad" id="inp_h_txt_otrcom-udad" /> -->
+                        <span id="blq_ct_pgtmp" class="block">
+                                <span id="spn_ct_pago">  
+                                <label class="etpreg" for="ct_pago">Pago:</label>
+                                <select d6-field="PAGO" d6-fieldType='T' name="ct_pago" id="ct_pago">
+                                    <option value="CAD">CAD</option>
+                                    <option value="COA">COA</option>
+                                    <option value="CUD">CUD</option>
+                                </select>                                
+                                </span>
+                        <span id="spn_ct_tiempo">  
+                                <label class="etpreg" for="ct_tiempo">Tiempo:</label>
+                                <select d6-field="TIEMPO" d6-fieldType='N' name="ct_tiempo" id="ct_tiempo">
+                                	<option value="0">Contado previo</option>
+                                    <option value="7">7 días</option>
+                                    <option value="30">30 días</option>
+                                    <option value="60">60 días</option>
+                                    <option value="90">90 días</option>
+                                    <option value="120">120 días</option>
+                                    <option value="150">150 días</option>
+                                </select>                                
+                        </span>
+                    </div>
+                    <div class="box" id="ctto_entr">
+                        <a name="bx_entr"></a>
+                        <div class="stit">ENTREGA / EMBARQUE</div>
+                        <table id="tbl_entr">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th class="etpreg" id="th_cantidad">Total Kgs.</th>
+                                <th class="etpreg" id="th_embarque">Embarque</th>
+                                <th class="etpreg" id="th_fijacion">Fijación</th>
+                                <th>
+                                	<span class="img_addrmv" id="ct_sapl" style="cursor: pointer;" onclick="ShowHideAplicacion('+',this.id);" title="Mostrar todas las APLICACIONES"><img src="img/visible-20.png"/></span><br/>
+									<span class="img_addrmv" id="ct_hapl" style="cursor: pointer;" onclick="ShowHideAplicacion('-',this.id);" title="Ocultar todas las APLICACIONES"><img src="img/invisible-20.png"/></span>                                	
+                                </th>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_entr-cant-1" class="etpreg">1</label></td>
+                                <td><input type="text" name="ct_entr-cant-1" id="ct_entr-cant-1" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-1" id="ct_entr-emb-1"></select></td>
+                                <td><select name="ct_entr-fijacion-1" id="ct_entr-fijacion-1"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-1" style="cursor: pointer;" onclick="ShowHideAplicacion('1',this.id);" title="Mostrar APLICACIÓN 1"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-1" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_entr-cant-2" class="etpreg">2</label></td>
+                                <td><input type="text" name="ct_entr-cant-2" id="ct_entr-cant-2" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-2" id="ct_entr-emb-2"></select></td>
+                                <td><select name="ct_entr-fijacion-2" id="ct_entr-fijacion-2"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-2" style="cursor: pointer;" onclick="ShowHideAplicacion('2',this.id);" title="Mostrar APLICACIÓN 2"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-2" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-3" class="etpreg">3</label></td>
+                                <td><input type="text" name="ct_entr-cant-3" id="ct_entr-cant-3" placeholder="Cantidad en Kg." /></td>
+								<td><select name="ct_entr-emb-3" id="ct_entr-emb-3"></select></td>
+                                <td><select name="ct_entr-fijacion-3" id="ct_entr-fijacion-3"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-3" style="cursor: pointer;" onclick="ShowHideAplicacion('3',this.id);" title="Mostrar APLICACIÓN 3"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-3" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-4" class="etpreg">4</label></td>
+                                <td><input type="text" name="ct_entr-cant-4" id="ct_entr-cant-4" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-4" id="ct_entr-emb-4"></select></td>
+                                <td><select name="ct_entr-fijacion-4" id="ct_entr-fijacion-4"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-4" style="cursor: pointer;" onclick="ShowHideAplicacion('4',this.id);" title="Mostrar APLICACIÓN 4"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-4" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-5" class="etpreg">5</label></td>
+                                <td><input type="text" name="ct_entr-cant-5" id="ct_entr-cant-5" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-5" id="ct_entr-emb-5"></select></td>
+                                <td><select name="ct_entr-fijacion-5" id="ct_entr-fijacion-5"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-5" style="cursor: pointer;" onclick="ShowHideAplicacion('5',this.id);" title="Mostrar APLICACIÓN 5"><img src="img/visible-20.png"/></span></td>
+                            </tr>    
+                            <tr id="ct_apl-tr-5" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-6" class="etpreg">6</label></td>
+                                <td><input type="text" name="ct_entr-cant-6" id="ct_entr-cant-6" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-6" id="ct_entr-emb-6"></select></td>
+                                <td><select name="ct_entr-fijacion-6" id="ct_entr-fijacion-6"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-6" style="cursor: pointer;" onclick="ShowHideAplicacion('6',this.id);" title="Mostrar APLICACIÓN 6"><img src="img/visible-20.png"/></span></td>
+                            </tr>              
+                            <tr id="ct_apl-tr-6" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>
+                            <tr>
+                                <td><label for="ct_entr-cant-7" class="etpreg">7</label></td>
+                                <td><input type="text" name="ct_entr-cant-7" id="ct_entr-cant-7" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-7" id="ct_entr-emb-7"></select></td>
+                                <td><select name="ct_entr-fijacion-7" id="ct_entr-fijacion-7"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-7" style="cursor: pointer;" onclick="ShowHideAplicacion('7',this.id);" title="Mostrar APLICACIÓN 7"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-7" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-8" class="etpreg">8</label></td>
+                                <td><input type="text" name="ct_entr-cant-8" id="ct_entr-cant-8" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-8" id="ct_entr-emb-8"></select></td>
+                                <td><select name="ct_entr-fijacion-8" id="ct_entr-fijacion-8"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-8" style="cursor: pointer;" onclick="ShowHideAplicacion('8',this.id);" title="Mostrar APLICACIÓN 8"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-8" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-9" class="etpreg">9</label></td>
+                                <td><input type="text" name="ct_entr-cant-9" id="ct_entr-cant-9" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-9" id="ct_entr-emb-9"></select></td>
+                                <td><select name="ct_entr-fijacion-9" id="ct_entr-fijacion-9"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-9" style="cursor: pointer;" onclick="ShowHideAplicacion('9',this.id);" title="Mostrar APLICACIÓN 9"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-9" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-3" class="etpreg">10</label></td>
+                                <td><input type="text" name="ct_entr-cant-10" id="ct_entr-cant-10" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-10" id="ct_entr-emb-10"></select></td>
+                                <td><select name="ct_entr-fijacion-10" id="ct_entr-fijacion-10"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-10" style="cursor: pointer;" onclick="ShowHideAplicacion('10',this.id);" title="Mostrar APLICACIÓN 10"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-10" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-11" class="etpreg">11</label></td>
+                                <td><input type="text" name="ct_entr-cant-11" id="ct_entr-cant-11" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-11" id="ct_entr-emb-11"></select></td>
+                                <td><select name="ct_entr-fijacion-11" id="ct_entr-fijacion-11"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-11" style="cursor: pointer;" onclick="ShowHideAplicacion('11',this.id);" title="Mostrar APLICACIÓN 11"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-11" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-12" class="etpreg">12</label></td>
+                                <td><input type="text" name="ct_entr-cant-12" id="ct_entr-cant-12" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-12" id="ct_entr-emb-12"></select></td>
+                                <td><select name="ct_entr-fijacion-12" id="ct_entr-fijacion-12"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-12" style="cursor: pointer;" onclick="ShowHideAplicacion('12',this.id);" title="Mostrar APLICACIÓN 12"><img src="img/visible-20.png"/></span></td>
+                            </tr>
+                            <tr id="ct_apl-tr-12" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                            
+                            <tr>
+                                <td><label for="ct_entr-cant-13" class="etpreg">13</label></td>
+                                <td><input type="text" name="ct_entr-cant-13" id="ct_entr-cant-13" placeholder="Cantidad en Kg." /></td>
+                                <td><select name="ct_entr-emb-13" id="ct_entr-emb-13"></select></td>
+                                <td><select name="ct_entr-fijacion-13" id="ct_entr-fijacion-13"></select></td>
+                                <td class="border_radius_11"><span class="img_addrmv" id="ct_shapl-13" style="cursor: pointer;" onclick="ShowHideAplicacion('13',this.id);" title="Mostrar APLICACIÓN 13"><img src="img/visible-20.png"/></span></td>
+                            </tr>               
+                            <tr id="ct_apl-tr-13" style="display: none;">
+	                            <td colspan="4">
+	                            <!-- Por programación se incorpora APLICACIÓN -->
+			                    </td>
+                            </tr>                                     
+                            <tr>
+                                <td class="etpreg">Total: </td>
+                                <td><input type="text" name="ct_entr-canttot" id="ct_entr-canttot" readonly class="readonly txtalign-right" /></td>
+                                <td colspan="3"><span id="spn_chk_cantkgs"></span></td>
+                            </tr>                                                            
+                        </table>
+	                    <!-- d6-field: APLICACION -->
+	                    <!-- Almacenamiento intermedio antes de guardar en la BBDD -->
+						<input type="hidden" name="inp_h_fld_apl-cant-1" id="inp_h_fld_apl-cant-1" d6-field="APLICACION_1_CANTIDAD" d6-fieldType='N' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-cant-2" id="inp_h_fld_apl-cant-2" d6-field="APLICACION_2_CANTIDAD" d6-fieldType='N' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-cant-3" id="inp_h_fld_apl-cant-3" d6-field="APLICACION_3_CANTIDAD" d6-fieldType='N' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-cant-4" id="inp_h_fld_apl-cant-4" d6-field="APLICACION_4_CANTIDAD" d6-fieldType='N' value="" />
+						<input type="hidden" name="inp_h_fld_apl-ctto-1" id="inp_h_fld_apl-ctto-1" d6-field="APLICACION_1_CONTRATO" d6-fieldType='T' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-ctto-2" id="inp_h_fld_apl-ctto-2" d6-field="APLICACION_2_CONTRATO" d6-fieldType='T' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-ctto-3" id="inp_h_fld_apl-ctto-3" d6-field="APLICACION_3_CONTRATO" d6-fieldType='T' value="" />            
+						<input type="hidden" name="inp_h_fld_apl-ctto-4" id="inp_h_fld_apl-ctto-4" d6-field="APLICACION_4_CONTRATO" d6-fieldType='T' value="" />            						
+	                    <!-- -->
+                    </div>
+                    <!--
+                    <div class="box" id="ctto_apl">
+                        <a name="bx_apl"></a>
+                        <div class="stit">APLICACIÓN</div>
+                        <table id="tbl_apl">
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th class="etpreg">Contrato Nº</th>
+                                <th class="etpreg">Total Kgs.</th>
+                            </tr>
+                            <tr>
+                                <td class="etpreg">1</td>
+                                <td><input type="text" name="ct_apl-ctto-1" id="ct_apl-ctto-1" placeholder="Contrato" /></td>
+                                <td><input type="text" name="ct_apl-cant-1" id="ct_apl-cant-1" placeholder="Cantidad en Kg." /></td>
+                            </tr>
+                            <tr>
+                                <td class="etpreg">2</td>
+                                <td><input type="text" name="ct_apl-ctto-2" id="ct_apl-ctto-2" placeholder="Contrato" /></td>
+                                <td><input type="text" name="ct_apl-cant-2" id="ct_apl-cant-2" placeholder="Cantidad en Kg." /></td>
+                            </tr>
+                            <tr>
+                                <td class="etpreg">3</td>
+                                <td><input type="text" name="ct_apl-ctto-3" id="ct_apl-ctto-3" placeholder="Contrato" /></td>
+                                <td><input type="text" name="ct_apl-cant-3" id="ct_apl-cant-3" placeholder="Cantidad en Kg." /></td>
+                            </tr>
+                            <tr>
+                                <td class="etpreg">4</td>
+                                <td><input type="text" name="ct_apl-ctto-4" id="ct_apl-ctto-4" placeholder="Contrato" /></td>
+                                <td><input type="text" name="ct_apl-cant-4" id="ct_apl-cant-4" placeholder="Cantidad en Kg." /></td>
+                            </tr>
+                            <tr>
+                                <td class="etpreg">Total: </td>
+                                <td>&nbsp;</td>
+                                <td><input type="text" name="ct_apl-canttot" id="ct_apl-canttot" readonly /></td>
+                            </tr>
+                            <tr>
+                            	<td colspan="3"><span id="spn_chk_apl_cantkgs"></span></td>
+                            </tr>
+                        </table>                                   
+                    </div>
+                    -->
+                    <div class="box" id="ctto_otrcond">
+                        <a name="bx_otrcond"></a>
+                        <div class="stit">OTRAS CONDICIONES</div>
+                        <span id="spn_ct_arb" class="block">  
+                            <label class="etpreg" for="ct_arb">Arbitraje:</label>
+                            <select name="ct_arb" id="ct_arb" d6-field="ARBITRAJE" d6-fieldType='T'>
+                                <option value="Hamburgo">Hamburgo</option>
+                                <option value="Valencia">Valencia</option>
+                                <option value="Londres">Londres</option>
+                            </select>                                
+                        </span>
+                        <!-- <input type="hidden" d6-field="ARBITRAJE" d6-fieldType='T' name="inp_h_txt_arb" id="inp_h_txt_arb"/> -->
+                        <span id="spn_blq_ct_fax" class="block">
+                            <span id="spn_ct_fax">
+                                <label for="ct_fax" class="etpreg">Enviar al FAX: </label>
+                                <input type="text" d6-field="FAX" d6-fieldType='T' name="ct_fax" id="ct_fax" placeholder="FAX" />
+                            </span>
+                            <span id="spn_ct_fax-persona">
+                                <label for="ct_fax-persona" class="etpreg">Nombre: </label>
+                                <input type="text" d6-field="FAX_DESTINATARIO" d6-fieldType='T' name="ct_fax-persona" id="ct_fax-persona" placeholder="Nombre" />
+                            </span>
+                        </span>     
+                        <span id="spn_blq_ct_email" class="block">
+                            <span id="spn_ct_email">
+                                <label for="ct_email" class="etpreg">Enviar al EMail: </label>
+                                <input type="text" d6-field="EMAIL" d6-fieldType='T' name="ct_email" id="ct_email" placeholder="EMail" />
+                            </span>
+                            <span id="spn_ct_email-persona">
+                                <label for="ct_email-persona" class="etpreg">Nombre: </label>
+                                <input type="text" d6-field="EMAIL_DESTINATARIO" d6-fieldType='T' name="ct_email-persona" id="ct_email-persona" placeholder="Nombre" />
+                            </span>
+                        </span>     
+                    </div>
+                    <div class="box" id="ctto_doc">
+                        <a name="bx_doc"></a>
+                        <div class="stit">DOCUMENTACIÓN</div>
+                        <div id="blq_doc" class="block">
+                            <span id="spn_ct_fito">
+                                <span class="etpreg">Fitosanitario: </span>
+                                <label for="ct_fito">No</label>
+                                <input type="checkbox" d6-field="DOC_FITOSANITARIO" d6-fieldType='B' name="ct_fito" id="ct_fito" value="false" />
+                            </span>
+                            <span id="spn_ct_cert-ogn">
+                                <span class="etpreg">Certificado origen: </span>
+                                <label for="ct_cert-ogn">No</label>
+                                <input type="checkbox" d6-field="DOC_CERT_ORIGEN" d6-fieldType='B' name="ct_cert-ogn" id="ct_cert-ogn" value="false" />
+                            </span>
+                            <span id="spn_ct_cert-peso">
+                                <span class="etpreg">Certificado peso: </span>
+                                <label for="ct_cert-peso">No</label>
+                                <input type="checkbox" d6-field="DOC_CERT_PESO" d6-fieldType='B' name="ct_cert-peso" id="ct_cert-peso" value="false" />
+                            </span>
+                            <span id="spn_ct_bl">
+                                <span class="etpreg">B/L: </span>
+                                <label for="ct_bl">No</label>
+                                <input type="checkbox" d6-field="DOC_BL" d6-fieldType='B' name="ct_bl" id="ct_bl" value="false" />
+                            </span>                            
+                            <span id="spn_ct_otra-doc">
+                                <input type="text" d6-field="DOC_CERT_TEXTO" d6-fieldType='T' name="ct_otra-doc-txt" id="ct_otra-doc-txt" placeholder="Otra documentación" />
+                                <label for="ct_otra-doc">No</label>
+                                <input type="checkbox" d6-field="DOC_CERT_VALOR" d6-fieldType='B' name="ct_otra-doc" id="ct_otra-doc" value="false" />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="box" id="ctto_condesp">
+                        <a name="bx_condesp"></a>
+                        <div class="stit">CONDICIONES ESPECIALES</div>
+                        <table id="tbl_ct_cond-esp">
+                            <tr>
+                                <td><label class="etpreg" for="ct_cond-esp-cb">Condiciones especiales del <span id="cond-esp-txt"></span>:</label></td>
+                                <td style="width:45%">
+                                	<span class="ui-icon ui-icon-trash" id="ico_tsh_cond-esp-cb"></span>
+                                	<select d6-field="COND_ESPECIALES_CP" d6-fieldType='T' name="ct_cond-esp-cb" id="ct_cond-esp-cb"></select>
+                                </td>
+                            </tr>
+                        </table>
+                        <label class="etpreg" for="ct_cond-esp">Condiciones especiales del Contrato:</label><br/>
+                        <textarea d6-field="COND_ESPECIALES" d6-fieldType='T' rows="3" cols="100" name="ct_cond-esp" id="ct_cond-esp" placeholder="Notas" class="ui-state-default"></textarea>
+                    </div>
+                    <div class="box" id="ctto_btns">
+                        <a name="bx_btns"></a>
+                        <span id="spn_ctto_btns" class="block">
+                            <button id="ct_btn_reset">Limpiar</button>
+                            <button id="ct_btn_generar-ctto">Generar Contrato</button>
+                            <button id="ct_btn_generar-oferta">Generar Oferta</button>
+                            <button id="ct_btn_cancelar">Cancelar</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- app_w : fin -->
+    </div>
+    <div id="dlg">
+        <span class="txtDlg"></span>
+    </div>
+    <!-- <div id="dlg_chk"><span class="txtDlg"></span></div> -->
+    <div id="dlg_ifrm">
+        <iframe src="" width="770" height="600" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <div id="dlg_ldr">
+        <span>. . . . . .</span>
+    </div>
+    <!-- border="0" width="64px" height="64px" -->
+</body>
+<!-- Script DECWeb -->
+<script type="text/javascript" src="js/decweb.js"></script>
+<!-- APLICACIÓN :: Inicio -->
+<div id="apl_html" style="display: none;">
+	<div class="wrp_apl">
+		<div class="etpreg">APLICACIÓN</div>
+	    <table id="tbl_apl">
+	        <tr>
+	            <th>&nbsp;</th>
+	            <th class="etpreg">Contrato Nº</th>
+	            <th class="etpreg">Total Kgs.</th>
+	        </tr>
+	        <tr>
+	            <td class="etpreg">1</td>
+	            <td><input type="text" name="ct_apl-ctto-#n#-1" id="ct_apl-ctto-#n#-1" placeholder="Contrato" d6-apl="#n#"/></td>
+	            <td><input type="text" name="ct_apl-cant-#n#-1" id="ct_apl-cant-#n#-1" placeholder="Cantidad en Kg." d6-apl="#n#"/></td>
+	        </tr>
+	        <tr>
+	            <td class="etpreg">2</td>
+	            <td><input type="text" name="ct_apl-ctto-#n#-2" id="ct_apl-ctto-#n#-2" placeholder="Contrato" d6-apl="#n#"/></td>
+	            <td><input type="text" name="ct_apl-cant-#n#-2" id="ct_apl-cant-#n#-2" placeholder="Cantidad en Kg." d6-apl="#n#"/></td>
+	        </tr>
+	        <tr>
+	            <td class="etpreg">3</td>
+	            <td><input type="text" name="ct_apl-ctto-#n#-3" id="ct_apl-ctto-#n#-3" placeholder="Contrato" d6-apl="#n#"/></td>
+	            <td><input type="text" name="ct_apl-cant-#n#-3" id="ct_apl-cant-#n#-3" placeholder="Cantidad en Kg." d6-apl="#n#"/></td>
+	        </tr>
+	        <tr>
+	            <td class="etpreg">4</td>
+	            <td><input type="text" name="ct_apl-ctto-#n#-4" id="ct_apl-ctto-#n#-4" placeholder="Contrato" d6-apl="#n#"/></td>
+	            <td><input type="text" name="ct_apl-cant-#n#-4" id="ct_apl-cant-#n#-4" placeholder="Cantidad en Kg." d6-apl="#n#"/></td>
+	        </tr>
+	        <tr>
+	            <td class="etpreg">Total: </td>
+	            <td>&nbsp;</td>
+	            <td><input type="text" name="ct_apl-canttot-#n#" id="ct_apl-canttot-#n#" readonly class="readonly txtalign-right" d6-apl="#n#"/></td>
+	        </tr>
+	        <tr>
+	        	<td colspan="3"><span id="spn_chk_apl_cantkgs-#n#" d6-apl="#n#"></span></td>
+	        </tr>
+	    </table>
+	</div>
+</div>
+<!-- APLICACIÓN :: Fin -->
+
+</html>

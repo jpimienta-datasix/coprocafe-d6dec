@@ -1,0 +1,2 @@
+9:53:10 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+14:38:30 > RTCT > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.

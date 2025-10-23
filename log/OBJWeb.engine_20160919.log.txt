@@ -1,0 +1,4 @@
+12:58:32 > MXCTTOLD > ERROR (-2147217900) Invalid column name 'CTR_DOC'.
+12:58:33 > MXCTTOLD > ERROR (-2147217900) Invalid column name 'CTR_DOC'.
+12:58:33 > MXCTTOLD > ERROR (-2147217900) Invalid column name 'CTR_DOC'.
+12:58:33 > MXCTTOLD > ERROR (-2147217900) Invalid column name 'CTR_DOC'.

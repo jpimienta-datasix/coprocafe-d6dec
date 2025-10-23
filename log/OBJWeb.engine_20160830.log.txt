@@ -1,0 +1,1 @@
+18:11:17 > SVCTTO > ERROR (-2147217900) Column name 'PriceType' appears more than once in the result column list.

@@ -1,0 +1,2 @@
+13:22:26 > RCBOR > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+18:10:07 > RTCV > ERROR (-2147217900) Invalid column name 'QualGrpNo'.

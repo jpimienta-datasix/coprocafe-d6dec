@@ -1,0 +1,9 @@
+22:00:02 [vbs]> Inicio... 
+22:00:03 [vbs]> INFORMES para el día: 2016-12-26
+22:00:03 [vbs]> Generación informe diario: VENTAS
+22:00:09 [vbs]> (V) VENTAS_20161226.pdf > CORRECTO!
+22:00:09 [vbs]> Generación informe diario: COMPRAS
+22:00:11 [vbs]> (C) COMPRAS_20161226.pdf > CORRECTO!
+22:00:11 [vbs]> Generación informe diario: OFERTAS
+22:00:13 [vbs]> (O) OFERTAS_20161226.pdf > CORRECTO!
+22:00:13 [vbs]> Fin PDFs! en 12 segundos.

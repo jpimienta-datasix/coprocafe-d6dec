@@ -1,0 +1,37 @@
+12:57:22 [vbs]> Inicio... 
+12:58:08 [vbs]> Inicio... 
+12:58:09 [vbs]> INFORMES para el día: 2016-12-05
+12:58:09 [vbs]> Generación informe diario: VENTAS
+12:58:15 [vbs]> (V) VENTAS_20161220.pdf > CORRECTO!
+12:58:15 [vbs]> Generación informe diario: COMPRAS
+12:58:17 [vbs]> (C) COMPRAS_20161220.pdf > CORRECTO!
+12:58:17 [vbs]> Generación informe diario: OFERTAS
+12:58:20 [vbs]> (O) OFERTAS_20161220.pdf > CORRECTO!
+12:58:20 [vbs]> Fin PDFs! en 12 segundos.
+13:00:12 [vbs]> Inicio... 
+13:00:12 [vbs]> INFORMES para el día: 2016-12-05
+13:00:12 [vbs]> Generación informe diario: VENTAS
+13:00:15 [vbs]> (V) VENTAS_20161205.pdf > CORRECTO!
+13:00:15 [vbs]> Generación informe diario: COMPRAS
+13:00:17 [vbs]> (C) COMPRAS_20161205.pdf > CORRECTO!
+13:00:17 [vbs]> Generación informe diario: OFERTAS
+13:00:19 [vbs]> (O) OFERTAS_20161205.pdf > CORRECTO!
+13:00:19 [vbs]> Fin PDFs! en 8 segundos.
+13:06:27 [vbs]> Inicio... 
+13:06:27 [vbs]> INFORMES para el día: 2016-12-27
+13:06:27 [vbs]> Generación informe diario: VENTAS
+13:06:31 [vbs]> (V) VENTAS_20161227.pdf > CORRECTO!
+13:06:31 [vbs]> Generación informe diario: COMPRAS
+13:06:33 [vbs]> (C) COMPRAS_20161227.pdf > CORRECTO!
+13:06:33 [vbs]> Generación informe diario: OFERTAS
+13:06:35 [vbs]> (O) OFERTAS_20161227.pdf > CORRECTO!
+13:06:35 [vbs]> Fin PDFs! en 8 segundos.
+22:00:00 [vbs]> Inicio... 
+22:00:00 [vbs]> INFORMES para el día: 2016-12-27
+22:00:00 [vbs]> Generación informe diario: VENTAS
+22:00:04 [vbs]> (V) VENTAS_20161227.pdf > CORRECTO!
+22:00:04 [vbs]> Generación informe diario: COMPRAS
+22:00:06 [vbs]> (C) COMPRAS_20161227.pdf > CORRECTO!
+22:00:06 [vbs]> Generación informe diario: OFERTAS
+22:00:07 [vbs]> (O) OFERTAS_20161227.pdf > CORRECTO!
+22:00:07 [vbs]> Fin PDFs! en 7 segundos.

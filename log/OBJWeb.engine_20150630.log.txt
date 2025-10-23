@@ -1,0 +1,8 @@
+13:57:54 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs 334229824" 
+14:12:10 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs 339505685" 
+14:30:44 > QS: A=RTO&jtStartIndex=0&jtPageSize=5&jtSorting=FECHA_CARGA%20DESC
+14:30:44 > Form: 
+14:30:53 > QS: A=UPLD
+14:30:53 > Form: e=SIMI&a=2015&t=TARGET&d=test%204
+14:30:53 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs 339505685" 
+16:46:26 > cmd: cmd.exe /c "C:\Users\Pimienta.DATASIX\Documents\Empresas\Seat\PedidoSugerido\OBJWeb\D6OBJWEB\Web\..\cmd\D6OBJWeb.XLSControl.vbs 358479947" 

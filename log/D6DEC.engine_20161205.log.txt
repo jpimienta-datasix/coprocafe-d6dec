@@ -1,0 +1,25 @@
+13:47:10 (asp)> RCBCP > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:47:27 (asp)> RCBOR > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:47:44 (asp)> RCBQL > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBML > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBQG > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBFO > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBFO > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBCO > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBCD > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBI > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:48:01 (asp)> RCBCES > ERROR (3704) La operación no está permitida si el objeto está cerrado.
+13:57:56 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHMP_5251101_01_08.11.16_EUR_002901100.pdf" 
+14:06:45 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHTM_5251101_01_08.11.16_EUR_002901100.pdf" 
+14:24:08 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHC0_5250701_00_26.10.16_EUR_001205000.pdf" 
+14:26:24 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHTM_5251101_01_08.11.16_EUR_002901100.pdf" 
+14:37:18 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHT0_5250901_00_03.11.16_EUR_002900700.pdf" 
+14:41:21 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHT0_5250901_00_03.11.16_EUR_002900700.pdf" 
+14:42:28 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs O 722237944 LHOF_1610001_01_02.11.16_EUR_002904600.pdf" 
+14:42:59 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs C 722237944 LHMP_0049187_02_29.11.16_EUR_001010200.pdf" 
+15:05:36 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs C 722237944 LHT0_0049190_00_05.12.16_EUR_001034700.pdf" 
+15:05:39 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs C 722237944 LHT0_0049191_00_05.12.16_EUR_001034700.pdf" 
+15:19:31 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHT0_5251201_00_05.12.16_EUR_001109100.pdf" 
+15:19:34 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs V 722237944 LHT0_5251202_00_05.12.16_EUR_001109100.pdf" 
+19:24:10 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.
+19:24:14 (asp)> RDAM > ERROR (-2147217900) Sintaxis incorrecta cerca de '='.

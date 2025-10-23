@@ -1,0 +1,563 @@
+/*
+	Hoja de estilos para D6DEC - DataEntryWeb (COPROCAFÉ)
+	20161116
+*/
+
+/*
+*  html5 doctor css reset | http://html5doctor.com/html-5-reset-stylesheet
+*/
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}
+body{line-height:1}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}
+nav ul{list-style:none}
+blockquote,q{quotes:none}
+blockquote:before,blockquote:after,q:before,q:after{content:none}
+a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}
+ins{background-color:#ff9;color:#000;text-decoration:none}
+mark{background-color:#ff9;color:#000;font-style:italic;font-weight:bold}
+del{text-decoration:line-through}
+abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}
+table{border-collapse:collapse;border-spacing:0}
+hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}
+input,select{vertical-align:middle}
+
+/* >> D6DEC << */
+
+body {
+	font-family: arial, sans-serif;
+	font-size: 13px;
+}
+
+#wrapper {
+	width: 1350px;
+	height: 800px;
+	margin: 10px 25px;
+}
+
+input[d6-fieldType='N'] {
+	text-align: right;
+}
+
+/*--  --*/
+.padding10 {
+    padding: 10px;
+}
+
+.ui-icon {
+    float:left; 
+    margin-right:5px;
+}
+
+/* text */
+.txtalign-left {
+    text-align: left;
+}
+
+.txtalign-right {
+    text-align: right;
+}
+
+.txtalign-center {
+    text-align: center;
+}
+
+/* loader */
+#ldr {
+    display: none;
+    position: fixed;
+    right: 50px;
+    top: 25px;
+    margin: 0px;
+    padding: 0px;
+    z-index: 100;
+}
+/* - */
+body.ldng {
+	overflow: hidden;
+}
+
+body.ldng .mdl {
+	display: block;
+}
+
+/* -- MENU --*/
+
+#mnu_icon {
+	width: 55px;
+	margin-top: -30px;
+}
+
+#icn_showmnu {
+	text-align: center;
+}
+#menu_w {
+	width: 245px;
+	height: 770px;
+	/* float: left; */
+    position: fixed;
+    padding-top: 30px; 
+    /*
+    top: 30px;
+    left: 0px;
+    */
+	/* border-right: 2px grey solid; */
+	background-color: #fff; /*#BEBEBE;*/
+    text-align:center;
+}
+
+.mnuItm, .mnuItmOut { 
+	list-style: none;
+	padding: 10px;
+	width: 150px;
+	background-color: rgba(144, 203, 253, 0.31) ; /* rgba( 189, 253, 144, 0.307 ) ; */
+	margin: 15px auto;
+	text-align: center;
+}
+
+.mnuItm { border: 2px steelblue solid; } /* #234e02 */
+.mnuItmOut { border: 2px grey solid; }
+
+.mnuItm:hover {
+	background-color:  royalblue; /* #2d6802*/
+	color: white;
+}
+
+.mnuItmHover {
+	list-style: none;
+	padding: 10px;
+	border: 2px steelblue solid;  /* #234e02 */
+	width: 150px;
+	margin: 15px auto;
+	text-align: center;
+	background-color: royalblue; /* #2d6802 */
+	color: white !important;
+}
+
+.mnuItmOut:hover, .mnuItmOut:hover>a.lnkMnuOut {
+	cursor: not-allowed;
+}
+
+a.lnkMnu,a.lnkMnu:active,a.lnkMnu:visited {
+	text-decoration: none;
+	color: #DEDFDA;
+	font-weight: bolder;
+}
+
+.mnuItm:hover>a.lnkMnu {
+	color: white;
+}
+
+a.lnkMnuHover {
+	text-decoration: none;
+	/*color: #DEDFDA;*/
+	font-weight: bolder;
+	color: white;
+}
+
+.mnuItmSel, .mnuItmSel>a {
+	background-color: #F31919;
+	color: white;
+}
+
+a.lnkMnuOut,a.lnkMnuOut:active,a.lnkMnuOut:visited {
+	text-decoration: none;
+	color: #DEDFDA;
+	font-weight: bolder;
+}
+
+#lnks_ctto li {
+    text-decoration: none;
+    margin-bottom: 10px
+}
+
+ul#lnks_ctto {
+    list-style-type: none;
+}
+.titulo {
+	padding: 10px;
+	font-size: 19px;
+	font-weight: bold;
+	text-align: center;
+	color: #F31919;
+	text-transform: uppercase;
+}
+
+#logoCOPROCAFE {
+	margin-top: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 5px;
+	width: 230px;
+	display: block;
+	background-color: white;
+}
+
+#logoDATASIX {
+	margin-top: 70px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	padding: 5px;
+	width: 60px;
+	display: block;
+	background-color: white;
+}
+
+#version {
+	margin: 30px auto;
+	text-align: center;
+	font-family: arial;
+	font-size: 11px;
+	font-style: italic;	
+	width:100px;
+}
+
+/* -- APP -- */
+
+#app_w {
+	width: 1100px;
+	/*height: 700px;*/
+	float: right;
+    display: none;
+}
+
+#tsk_ctto {
+    display: none;
+}
+
+.ui-autocomplete { height: 200px; overflow-y: scroll; overflow-x: hidden;}
+.ui-autocomplete-loading { background:url('img/loading_cb.gif') no-repeat right center }
+
+.loading {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
+    background-color: #F0F0F0;
+}
+
+/* disable LINKS para cuando se deshabiliten controles */
+a.ui-state-disabled {
+    pointer-events: none;
+    background-color: lightblue!important;
+    color: dimgray;
+}
+
+.ui-state-disabled {
+    background-color: lightblue!important;
+    color: dimgray;
+}
+
+#tbl_ccp, #tbl_qoc {
+    margin-bottom: 25px;
+}
+
+#tbl_qoc label {
+    display: block;
+}
+
+.custom-combobox input.ui-widget {
+    color:dimgray; 
+}
+#wrp_pnl_hst, #wrp_jtable {
+    margin: 0 auto;
+	display: block;
+	text-align:	center;	
+	/* border: 1px dotted grey;	*/
+}
+
+#wrp_pnl_hst {
+	padding-top: 20px;
+	padding-bottom: 10px;    
+    width: 850px;
+}
+
+#wrp_jtable {
+	padding-bottom: 10px;  
+    width: 1150px; /* 850px */
+}
+#jtable_cttos {
+    display: none;
+}
+
+#jtable_cttos {
+	float: left;
+	width: 1060px;  /* 775px */
+}
+
+.jtable-row-selected {
+    font-weight: bolder;
+}
+
+#buttons_upd {
+	float: right;
+	padding-top: 70px;
+	width: 240px;
+}
+
+#pnl_sel
+{
+	margin-left: auto;
+	margin-right: 25px;
+	margin-top: 20px;	
+	text-align: center;
+}
+
+#pnl_sel {
+	/* border: 1px dotted grey; */
+	padding: 10px;
+}
+
+#btn_csl {
+    margin-left: 100px;
+}
+
+.tit {
+	font-size: 15px;
+	text-align: center;
+	font-weight: bolder;
+	margin-bottom: 20px;
+	color: #F31919;
+	text-transform: uppercase;	
+}
+
+#tbl_precio, #tbl_condfltcam, #tbl_dsppeso  {
+    width: 80%;    
+}
+
+#tbl_ct_interm,#tbl_cant {
+    width: 65%;
+}
+
+#tbl_apl {
+    width: 40%;
+}
+
+#tbl_ct_cond-esp {
+    width: 60%;
+}
+
+#tbl_entr{
+    width: 55%;
+}
+
+
+#tbl_precio, #tbl_entr, #tbl_apl, #tbl_ct_interm, #tbl_ct_cond-esp, #tbl_cant  {
+    margin: 10px auto;
+}
+
+#bx_precio_condentr {
+ 	margin: -10px auto 20px auto;
+ 	border: 1px dotted gray;
+ 	border-radius: 11px;
+ 	width: 650px;
+}
+
+#tbl_precio_condentr {
+ 	margin: 10px auto;
+}
+
+#tbl_fltcam, #tbl_condfltcam, #tbl_dsppeso, #tbl_ct_dir {
+    margin: 25px auto;
+}
+
+#tbl_precio th, #tbl_entr th, #tbl_apl th, #tbl_fltcam th, #tbl_dsppeso th, #tbl_cant th  {
+    padding: 10px;
+}
+
+#tbl_ct_interm td, #tbl_precio_condentr th, #tbl_precio_condentr td {
+    padding: 5px; 
+}
+
+#tbl_precio td, #tbl_entr td, #tbl_apl td, #tbl_fltcam td, #tbl_condfltcam td, #tbl_dsppeso td, #tbl_cant td {
+    padding: 5px;
+}
+/*-- Ocultamos datos de Fletes y Camión por defecto hasta que se seleccione origen/destino --*/
+#tr_info_fltcam {
+    display: none;
+}
+
+/*-- Info de FOB+<diferencial> --*/
+#ct_fobdif {
+	display: none;
+	margin: 5px;
+}
+
+/*-- Fletes / Camiones: tablas info --*/
+
+input[id^=ct_flt_], input[id^=ct_cam_] {
+    width: 75px;
+}
+
+table#tbl_info_flt {
+    border: 1px dotted cornflowerblue;
+}
+
+/* APLICACIONES */
+.wrp_apl {
+	border: 1px dotted gray;
+	border-radius: 11px;
+	padding: 10px;
+	margin: 10px;
+}
+ 
+.img_addrmv {
+	top:5px;
+}
+
+.border_radius_11 {
+	border-radius: 11px;
+}
+
+
+/* ESTADOS */
+.ui-state-ok {
+	border: 1px solid green;
+    background: lemonchiffon;
+    font-weight: bold;
+    color: green;
+}
+
+.ui-state-btn-click {
+	border: 1px solid black;
+    background: red;
+    font-weight: bold;
+    color: white;
+}
+
+.ui-state-orange {
+	border: 1px solid tomato;
+    background: lightgoldenrodyellow;
+    font-weight: bold;
+    color: tomato;
+}
+
+.ui-state-modified {
+    border: 2px solid darkgreen !important; /*#aed0ea;*/
+    background: #e8f5f !important; /*CEF5CF*/
+    font-weight: bold !important;
+    color: #2779aa !important;
+}
+
+.ui-state-err {
+    background: #F5CED5 !important; /*CEF5CF*/
+    color: #B40404 !important;
+}
+
+.ui-state-err-txt {
+    background: #F5CED5 !important; /*CEF5CF*/
+    color: #B40404 !important;
+    border: 1px solid #B40404;
+}
+
+
+.ui-state-required {
+    color: red !important;
+}
+
+.ui-state-required-opt {
+    color: orange !important;
+}
+
+#spn_chk_cantkgs, span[id^='spn_chk_apl_cantkgs-'] {
+	padding: 5px;
+	margin-top: 3px;
+}
+
+/*
+span[id^=spn_entr-fijacion-], span[id^=spn_entr-emb-] {
+	display: none;
+	padding: 1px;
+}
+*/
+/*-- openWnd  --*/
+#info {
+	display: block;
+	width: 350px;
+	border: 1px dotted grey;
+	text-align: center;
+	margin: 150px auto;
+}
+
+#info span.spn_info {
+	margin: 50px auto;
+	display: block;
+}
+
+#opn_err,#info_msg {
+	font-weight: bolder;
+	border:2px solid red;
+	margin: 10px;
+	padding:5px;
+	text-align:center;
+	color: red;
+	background-color: whitesmoke;
+}
+
+#opn_err {
+	display: none;
+}
+/* -- Dialogs -- */
+
+.dlgMsg {
+	height: 800px;
+}
+
+#dlg a {
+	text-decoration: none;
+	color: darkgray;
+	font-weight: bold;
+}
+
+#dlg a:hover {
+	color:darkgreen;
+	font-weight: bold;
+}
+/* Ocultar el botón de 'Cerrar' en la barra de título */
+/*
+.no-close .ui-dialog-titlebar-close {
+	display: none;
+}
+*/
+
+#dlg, #dlg_chk, #dlg_save, #dlg_ifrm, #dlg_ldr, #ldr_pdf, #ldr_slc_mss {
+	display: none;
+}
+
+#dlg_ldr {
+	text-align: center;
+}
+
+.txtDlgErr {
+	color: #F31919; 
+	font-weight: bolder;
+}
+
+.txtDlg {
+	color: #525252; 
+	font-weight: normal;
+}
+
+#dlg_login {
+	display: none;
+	text-align: center;
+}
+
+#dlg_login div {
+	display: none;
+	margin-top: 15px;
+}
+
+img#ldr_login {
+	margin: 5px auto;
+	display: block;
+}
+
+.cursorPointer {
+	cursor: pointer;
+}
+
+.cursorHelp {
+	cursor: help;	
+}

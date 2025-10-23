@@ -1,0 +1,2 @@
+17:17:42 > RTCT > ERROR (-2147217900) Incorrect syntax near ' AND LTrim(Ctr) LIKE '.
+17:18:04 > RTCT > ERROR (-2147217900) Incorrect syntax near ' AND LTrim(Ctr) LIKE '.

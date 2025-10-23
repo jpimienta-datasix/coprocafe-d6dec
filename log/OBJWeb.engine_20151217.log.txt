@@ -1,0 +1,1 @@
+17:48:27 > RCBCP > ERROR (-2147217865) Invalid object name 'INFOCOP.dbo.D55301'.

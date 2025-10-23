@@ -1,0 +1,1 @@
+18:47:55 > MXCTTOLD > ERROR (-2147217900) Invalid column name 'COD_COD'.

@@ -1,0 +1,3 @@
+13:51:35 > RCBFF > ERROR (-2147217900) Incorrect syntax near the keyword 'and'.
+13:54:26 > RCBFF > ERROR (-2147217900) Incorrect syntax near the keyword 'and'.
+13:59:41 > RCBFF > ERROR (-2147217900) Incorrect syntax near the keyword 'and'.

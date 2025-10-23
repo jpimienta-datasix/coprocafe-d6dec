@@ -1,0 +1,3 @@
+17:34:20 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs O 578944034 "LHT0 1701001 00 27.02.17 EUR 004934000.pdf" 1" 
+17:59:43 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs O 578944047 "LHOF 1701002 00 27.02.17 USD 001154000.pdf" 2" 
+18:02:16 (asp)> [GenPDF] cmd.exe /c "C:\apps\D6DEC\www\\cnd\cndengine.vbs O 578944047 "LHT0 1701003 00 27.02.17 EUR 004934000.pdf" 2" 

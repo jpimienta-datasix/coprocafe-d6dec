@@ -1,0 +1,1 @@
+16:27:15 > SVCTTO > ERROR (-2147217873) Cannot insert the value NULL into column 'MERCADO_VALOR', table 'INFOCOP.dbo.D6DEC_CONTRATOS'; column does not allow nulls. INSERT fails.

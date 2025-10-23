@@ -1,0 +1,7 @@
+14:49:41 > RCE > ERROR (-2147217900) Invalid column name 'INS'.
+14:55:53 > RCE > ERROR (-2147217900) Invalid column name 'INS'.
+15:52:45 > RCE > ERROR (-2147217900) Invalid column name 'CIF'.
+16:23:03 > RCE > ERROR (-2147217900) Invalid column name 'INS'.
+17:30:47 > RCE > ERROR (-2147217900) Invalid column name 'INS'.
+17:31:51 > RCE > ERROR (-2147217900) Invalid column name 'INS'.
+17:37:56 > RCE > ERROR (-2147217900) Invalid column name 'INS'.

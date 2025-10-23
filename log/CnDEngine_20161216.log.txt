@@ -1,0 +1,2 @@
+12:13:57 [vbs]> Inicio <CONTRATO - Price-to-be-fixed> (Compra/Venta/Oferta: C | Session: 509590837 | PDF: LHT0_0049192_00_16.12.16_EUR_001034700.pdf | PriceType: 2)
+12:13:58 [vbs]> Fin (Compra/Venta/Oferta: C | Session: 509590837 | PDF: LHT0_0049192_00_16.12.16_EUR_001034700.pdf | PriceType: 2)

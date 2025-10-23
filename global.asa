@@ -1,0 +1,110 @@
+<SCRIPT LANGUAGE=VBScript RUNAT=Server>
+' Control de D6DEC
+' http://www.datasix.es / jpimienta@datasix.es
+' v20151215
+' <Guardado con Codificación UTF-8>
+
+Sub Application_OnStart()
+Dim sUsrSQL, sPwdSQL, sSQLSrv
+
+	Server.ScriptTimeOut=300
+	'sUsrSQL = "usrcop"
+	'sPwdSQL = "usrcop"
+	'sSQLSrv = "HV-CNDW2K8\SQLEXPRESS"
+	'sSQLSrv = ".\SQLEXPRESS"
+	'sSQLSrv = "ESSEATMAS500579\SQLEXPRESS"
+  	sUsrSQL = "d6dec"
+	sPwdSQL = "DSD23824464"
+	sSQLSrv = "WEBSERVER\SQLEXPRESS"
+	Application("sCnxStr") = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=INFOCOP;Uid=" & sUsrSQL & ";Pwd=" & sPwdSQL & ";"
+	'sCnxStr = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=SIMI;Trusted_Connection=yes;"
+
+End Sub
+
+' Al iniciar sesión
+Sub Session_OnStart()
+	Dim oCnx
+	Dim oFSO
+
+	'sUsrSQL = "usrcop"
+	'sPwdSQL = "usrcop"
+	'sSQLSrv = "HV-CNDW2K8\SQLEXPRESS"
+  	sUsrSQL = "d6dec"
+	sPwdSQL = "DSD23824464"
+	sSQLSrv = "WEBSERVER\SQLEXPRESS"
+
+	sCnxStr = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=INFOCOP;Uid=" & sUsrSQL & ";Pwd=" & sPwdSQL & ";"
+	sUSR=Request.ServerVariables("AUTH_USER")
+	sIP=Request.ServerVariables("REMOTE_ADDR")
+	
+	Set oCnx = Server.CreateObject("ADODB.Connection")
+	sFecha = Year(Now) & "-" & Month(Now) & "-" & Day(Now) & " " & Hour(Now) & ":" & Minute(Now) & ":" & Second(Now)
+	oCnx.Open sCnxStr
+	'oCnx.Open Application("sCnxStr")
+	oCnx.Execute "SET DATEFORMAT YMD; INSERT INTO INFOCOP.dbo.D6DEC_Log (USUARIO, FECHA, ACCION, IP, SESSIONID) VALUES ('" & sUSR & "', '" & sFecha & "', 'SessionOnStart', '" & sIP & "', '" & Session.SessionID & "')", nRAFF
+	ChkErr("SessionOnStart - " & Session.SessionID)
+	oCnx.Close
+	Set oCnx = Nothing
+End Sub
+
+' Al finalizar la sesión
+Sub Session_OnEnd()
+'Se borran los ficheros temporales generados
+' ## SI NO FUNCIONA, PONER UNA TASK QUE LO HAGA ##
+	'Dim oFSO, sPath
+	'sPath = "C:\_Clientes\Coprocafe\D6DEC\www\pdf\" & Session.SessionID
+	'Set oFSO = Server.CreateObject("Scripting.FileSystemObject")
+	'If oFSO.FolderExists(sPath) Then oFSO.DeleteFolder(sPath)
+	'Set oFSO = Nothing
+	
+	'sUsrSQL = "usrcop"
+	'sPwdSQL = "usrcop"
+	'sSQLSrv = "HV-CNDW2K8\SQLEXPRESS"
+  	sUsrSQL = "d6dec"
+	sPwdSQL = "DSD23824464"
+	sSQLSrv = "WEBSERVER\SQLEXPRESS"
+
+	sCnxStr = "Provider=SQLNCLI10;Server=" & sSQLSrv & ";Database=INFOCOP;Uid=" & sUsrSQL & ";Pwd=" & sPwdSQL & ";"
+	sUSR=Request.ServerVariables("AUTH_USER")
+	sIP=Request.ServerVariables("REMOTE_ADDR")
+
+	Set oCnx = Server.CreateObject("ADODB.Connection")
+	sFecha = Year(Now) & "-" & Month(Now) & "-" & Day(Now) & " " & Hour(Now) & ":" & Minute(Now) & ":" & Second(Now)
+	oCnx.Open sCnxStr
+	'oCnx.Open Application("sCnxStr")
+	oCnx.Execute "SET DATEFORMAT YMD; INSERT INTO INFOCOP.dbo.D6DEC_Log (USUARIO, FECHA, ACCION, IP, SESSIONID) VALUES ('" & sUSR & "', '" & sFecha & "', 'SessionOnEnd', '" & sIP & "', '" & Session.SessionID & "')", nRAFF
+	ChkErr("SessionOnEnd - " & Session.SessionID)
+	oCnx.Close
+	Set oCnx = Nothing
+
+End Sub
+
+Function ChkErr(t)
+	ChkErr=""
+	If Err.Number<>0 Then
+		ChkErr = "ERROR (" & Err.Number & ") " & Err.Description
+		AddLog t & " > " & ChkErr
+        Err.Clear
+	End If
+End Function
+
+Sub AddLog (t)
+Dim sPthLg, oFSO, oLg
+	sPthLg = Server.MapPath(".") & "\log\D6DEC.global_asa_" & getAAAAMMDD() & ".log.txt"
+	Set oFSO = Server.CreateObject("Scripting.FileSystemObject")
+	Set oLg = oFSO.OpenTextFile(sPthLg,8,True)
+	oLg.Write Time & " (asp)> " & t & vbCrLf
+	oLg.Close
+	Set oLg = Nothing
+	Set oFSO = Nothing
+End Sub
+
+Function FrmDate(d)
+	FrmDate = CStr(DatePart("yyyy", d)) & "-" & CStr(DatePart("m", d)) & "-" & CStr(DatePart("d", d)) & " "
+	FrmDate = FrmDate & CStr(DatePart("h", d)) & ":" & CStr(DatePart("n", d)) & ":" & CStr(DatePart("s", d))
+End Function
+
+Function getAAAAMMDD()
+	getAAAAMMDD = CStr(Year(Now)*10000+Month(Now)*100+Day(Now))
+End Function
+</SCRIPT>

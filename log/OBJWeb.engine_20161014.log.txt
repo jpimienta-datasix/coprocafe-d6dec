@@ -1,0 +1,2 @@
+18:16:24 > RCBCD > ERROR (-2147217900) Incorrect syntax near the keyword 'WHERE'.
+18:17:01 > RCBCD > ERROR (-2147217900) Incorrect syntax near the keyword 'WHERE'.

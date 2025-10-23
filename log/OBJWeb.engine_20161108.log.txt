@@ -1,0 +1,4 @@
+11:38:48 > RDAM > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+11:39:27 > RDAM > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+11:44:17 > RDAM > ERROR (-2147217900) Incorrect syntax near the keyword 'AND'.
+11:48:31 > RDAM > ERROR (-2147217900) Invalid column name 'ACUERDOS'.

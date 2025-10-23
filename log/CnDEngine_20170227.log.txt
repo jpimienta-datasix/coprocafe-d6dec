@@ -1,0 +1,6 @@
+17:34:21 [vbs]> Inicio <CONTRATO> (Compra/Venta/Oferta: O | Session: 578944034 | PDF: LHT0 1701001 00 27.02.17 EUR 004934000.pdf | PriceType: 1)
+17:34:23 [vbs]> Fin (Compra/Venta/Oferta: O | Session: 578944034 | PDF: LHT0 1701001 00 27.02.17 EUR 004934000.pdf | PriceType: 1)
+17:59:43 [vbs]> Inicio <CONTRATO - Price-to-be-fixed> (Compra/Venta/Oferta: O | Session: 578944047 | PDF: LHOF 1701002 00 27.02.17 USD 001154000.pdf | PriceType: 2)
+17:59:45 [vbs]> Fin (Compra/Venta/Oferta: O | Session: 578944047 | PDF: LHOF 1701002 00 27.02.17 USD 001154000.pdf | PriceType: 2)
+18:02:16 [vbs]> Inicio <CONTRATO - Price-to-be-fixed> (Compra/Venta/Oferta: O | Session: 578944047 | PDF: LHT0 1701003 00 27.02.17 EUR 004934000.pdf | PriceType: 2)
+18:02:18 [vbs]> Fin (Compra/Venta/Oferta: O | Session: 578944047 | PDF: LHT0 1701003 00 27.02.17 EUR 004934000.pdf | PriceType: 2)
